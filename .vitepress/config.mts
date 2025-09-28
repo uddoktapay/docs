@@ -94,6 +94,27 @@ export default defineConfig({
                     { "text": "Metrics", "link": "/reports/metrics" },
                     { "text": "Best practices", "link": "/reports/best-practices" }
                 ]
+            },
+            {
+                "text": "SMS Data",
+                "collapsed": true,
+                "items": [
+                    { "text": "Overview", "link": "/sms-data/overview" },
+                    { "text": "Automatic entry", "link": "/sms-data/automatic" },
+                    { "text": "Manual entry", "link": "/sms-data/manual" },
+                    { "text": "Best practices", "link": "/sms-data/best-practices" }
+                ]
+            },
+            {
+                "text": "Devices",
+                "collapsed": true,
+                "items": [
+                    { "text": "Overview", "link": "/devices/overview" },
+                    { "text": "Device list", "link": "/devices/list" },
+                    { "text": "Connect device", "link": "/devices/connect" },
+                    { "text": "Balance verification", "link": "/devices/balance-verification" },
+                    { "text": "Best practices", "link": "/devices/best-practices" }
+                ]
             }
         ],
 
