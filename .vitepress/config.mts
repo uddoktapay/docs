@@ -66,6 +66,18 @@ export default defineConfig({
                     { text: 'Bank Gateways (Manual)', link: '/gateways/guides/bank' }
                 ]
             },
+            {
+                text: 'Customers',
+                collapsed: true,
+                items: [
+                    { text: 'Overview', link: '/customers/overview' },
+                    { text: 'List', link: '/customers/list' },
+                    { text: 'Create & Edit', link: '/customers/create-edit' },
+                    { text: 'Import & Export', link: '/customers/import-export' },
+                    { text: 'Best Practices', link: '/customers/best-practices' },
+                ]
+            }
+
         ],
 
         socialLinks: [
