@@ -4,21 +4,29 @@ title: User Input Fields
 
 # User Input Fields
 
-Bank Gateways can require additional information from the payer during checkout. These inputs are stored with the payment and shown in the Payments view.
+User input fields allow you to collect extra information from customers during checkout.  
+They are especially useful for **Bank Gateways** where proof of payment is required.
 
-Supported field types:
+## Available field types
 
-- **Text**
-- **Textarea**
-- **Select**
-- **Radio**
-- **Checkbox**
-- **File**
+- **Text** — e.g., Transaction ID, Reference Number
+- **Email** — to confirm payer’s contact
+- **Number** — for mobile or account numbers
+- **File Upload** (where supported) — proof of payment screenshot
+- **Dropdown / Select** (custom options) — let customers pick a payment branch or method
 
-Typical examples:
+## Marking as required
 
-- **Transaction ID**
-- **Payment Slip / Screenshot** (File)
-- **Depositor Name**
+Each field can be marked as **required**.  
+If required, customers cannot submit the payment form without filling the field.
 
-Fields can be reordered. Add as many as needed for your reconciliation workflow.
+## Example
+
+For a Bank Transfer gateway, you might configure:
+
+- **Trx ID** (Text, Required)  
+- **Proof Screenshot** (File Upload, Optional)  
+
+::: tip
+Keep required fields limited to what you need to verify a payment. Extra required fields can reduce completion rates.
+:::

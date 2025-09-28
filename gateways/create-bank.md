@@ -1,10 +1,10 @@
 ---
-title: Create Manual Bank Gateway
+title: Create Bank Gateway
 ---
 
-# Create Manual Bank Gateway
+# Create Bank Gateway
 
-Manual Bank Gateways are used for offline transfers. They collect user proof and are approved from the Payments module.
+Bank Gateways are used for offline transfers. They collect user proof and are approved from the Payments module.
 
 Steps:
 

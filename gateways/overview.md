@@ -1,16 +1,27 @@
 ---
-title: Gateways
+title: Gateways Overview
 ---
 
 # Gateways
 
-Gateways connect UddoktaPay to payment methods. There are two types:
+Gateways connect your system to payment providers.  
+From **Gateways → List**, you can manage both **Automatic** and **Bank** gateways.
 
-- **Automatic (API & MFS Automation)** — Provider SDK/API integrations and mobile-financial-service automations.
-- **Manual Bank Gateways** — Bank transfer methods that require proof (e.g., slip, reference ID). These collect user inputs and are reviewed/approved through Payments.
+## Gateway list
 
-A gateway may be **enabled/disabled**, **ordered**, and **configured**. Gateways that do not meet amount rules are automatically hidden during checkout.
+The gateway list allows you to:
 
-::: warning
-If the checkout amount is not within a gateway’s **Minimum** and **Maximum** limits, that gateway will not appear. A **Maximum Amount** of **0** means **unlimited**.
+- **Search** by display name or currency
+- **Reorder** the list
+- **Toggle status** (enable/disable a gateway without deleting)
+- **Edit / Delete** gateways
+- **Pagination** and per-page controls
+
+## Types of gateways
+
+1. **Automatic gateways** — API-based integrations with providers like PayPal, Stripe, bKash, Nagad, etc.  
+2. **Bank gateways** — manual transfer methods with predefined bank fields.
+
+::: tip
+For developers: custom gateways can be added through the [Gateway Development](/developer/gateways) module system.
 :::

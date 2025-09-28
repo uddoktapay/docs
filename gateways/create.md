@@ -4,35 +4,38 @@ title: Create Automatic Gateway
 
 # Create Automatic Gateway
 
-Select **New gateway** and pick a provider from the list (for example, bKash API or EPS). Each automatic gateway has its own configuration fields.
+From **Gateways → New gateway**, select a provider from the list (for example, **bKash API**, **PayPal**, or **EPS**).  
+Each automatic gateway has its own configuration fields, but most share a common structure.
 
-Common fields:
+## Common fields
 
-- **Display Name** — Name shown during checkout.
-- **Currency** — Currency handled by this gateway.
-- **Minimum / Maximum Amount** — Range allowed in checkout.
-- **Charges** — Fixed and percentage fees.
+- **Display Name** — Name shown to customers at checkout.  
+- **Currency** — Currency this gateway processes.  
+- **Minimum Amount / Maximum Amount** — Allowed transaction range.  
+- **Charges** — Fixed fee and percentage fee applied per transaction.  
 
-## Configuration
+::: warning
+If the checkout amount is outside the defined **Minimum** or **Maximum**, the gateway will not appear.  
+Setting **Maximum = 0** means **no limit**.
+:::
 
-Configuration depends on the provider, for example:
+## Provider configuration
 
-- **Sandbox** mode  
-- **Credentials** — Username, Password, App Key, App Secret  
-- **Number** — For personal or agent accounts  
-- **Pending Payment** — Whether to allow payments that do not match SMS data
+Depending on the provider, additional fields may include:
 
-### Pending Payment option
+- **Sandbox Mode** — toggle between testing and live environments.  
+- **Credentials** — for example, Client ID/Secret, Username/Password, App Key/App Secret.  
+- **Number** — wallet or agent number (for personal or agent gateways).  
+- **Pending Payment** — controls how unmatched transactions are handled.  
+
+## Pending Payment option
 
 For **Personal, Agent, and non-API merchant automation gateways**:
 
-- **Enabled:** If the user submits a transaction ID that is not found in the SMS Data section, the payment will be created with status **Pending**.  
-- **Disabled:** The system will alert the user that the transaction ID was not found, and the payment will not be created.
+- **Enabled:** If a customer submits a transaction ID that is not found in the SMS Data section, the payment will still be created with status **Pending**. You can later verify it manually.  
+- **Disabled:** If the transaction ID is not found in SMS Data, the system immediately shows an error and does not create the payment.  
 
 ::: tip
-Enable **Pending Payment** if you want to allow manual review of unmatched transactions. Disable it for stricter automation.
-:::
-
-::: warning
-A checkout amount outside **Minimum**/**Maximum** hides the gateway. **Maximum = 0** means **unlimited**.
+Enable **Pending Payment** when you want flexibility to review unmatched payments manually.  
+Disable it when you need strict automation and no manual verification.
 :::

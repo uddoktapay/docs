@@ -1,20 +1,36 @@
 ---
+title: UddoktaPay
+---
 
-# <https://vitepress.dev/reference/default-theme-home-page>
+# What is UddoktaPay?
 
-layout: home
+UddoktaPay is a **self-hosted and hosted payment automation platform** designed to simplify payment management for businesses of all sizes.  
+It helps entrepreneurs, agencies, and enterprises manage **multiple brands, customers, invoices, payment links, and gateways** — all from one secure dashboard.
 
-hero:
-  name: "UddoktaPay"
-  text: "Simplify Your Payment Management"
-  tagline: UddoktaPay offers a range of payment automation solutions for your business.
-  actions:
-    - theme: brand
-      text: What is UddoktaPay?
-      link: /guide/what-is-uddoktapay
-    - theme: alt
-      text: Quickstart
-      link: /guide/getting-started
-    - theme: alt
-      text: API Docs
-      link: https://developer.uddoktapay.com
+---
+
+## Key Highlights
+
+- **Multi-Brand Support**  
+  Manage multiple brands, domains, and settings under one system.  
+- **Payments & Gateways**  
+  Accept and automate transactions with bKash, Nagad, Rocket, Paypal, Paddle, Stripe etc, and custom modular gateways.  
+- **Customer Management**  
+  Keep track of customers, transactions, and business relationships.  
+- **Invoicing**  
+  Generate, send, and track invoices with live payment status updates.  
+- **Payment Links**  
+  Share secure payment links for quick and hassle-free collections.  
+- **Role & Permission Management**  
+  Define staff roles, control access, and manage teams with ease.  
+- **Customization**  
+  Themes, notification channels, and modular extensions to fit your business needs.  
+
+---
+
+## Why UddoktaPay?
+
+- **Self-Hosted & Secure** → Run on your own VPS or server with full control of your data.  
+- **Scalable** → From startups to enterprises, easily handle growing transaction volumes.  
+- **Flexible** → Modular architecture to add gateways, notifications, or themes.  
+- **Automation First** → Smart balance verification, 2FA, and instant notifications.
