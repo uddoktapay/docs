@@ -115,6 +115,19 @@ export default defineConfig({
                     { "text": "Balance verification", "link": "/devices/balance-verification" },
                     { "text": "Best practices", "link": "/devices/best-practices" }
                 ]
+            },
+            {
+                "text": "Brand Settings",
+                "items": [
+                    { "text": "General", "link": "/brand-settings/general" },
+                    { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
+                    { "text": "Mail Settings", "link": "/brand-settings/mail" },
+                    { "text": "Notifications", "link": "/brand-settings/notifications" },
+                    { "text": "Themes", "link": "/brand-settings/themes" },
+                    { "text": "SEO", "link": "/brand-settings/seo" },
+                    { "text": "FAQ", "link": "/brand-settings/faq" },
+                    { "text": "Upload Text File", "link": "/brand-settings/upload-text-file" }
+                ]
             }
         ],
 
