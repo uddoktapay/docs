@@ -9,22 +9,37 @@ export default defineConfig({
     logo: '/assets/images/logo.png',
     siteTitle: false,
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Home', link: 'https://uddoktapay.com' },
+      { text: 'Client Area', link: 'https://my.uddoktapay.com' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Guide',
+        collapsed: false,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'What is UddoktaPay?', link: '/guide/what-is-uddoktapay' },
+          { text: 'Getting Started', link: '/guide/getting-started' },
+          { text: 'System Requirements', link: '/guide/system-requirements' },
+          { text: 'Installation', link: '/guide/installation' },
+        ]
+      },
+      {
+        text: 'Payments',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/payments/overview' },
+          { text: 'List', link: '/payments/list' },
+          { text: 'View Payment', link: '/payments/view' },
+          { text: 'Actions', link: '/payments/actions' },
+          { text: 'Best Practices', link: '/payments/best-practices' },
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/uddoktapay' },
+      { icon: 'facebook', link: 'https://facebook.com/uddoktapay' }
     ]
   }
 })
