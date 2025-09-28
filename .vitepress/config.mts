@@ -76,8 +76,41 @@ export default defineConfig({
                     { text: 'Import & Export', link: '/customers/import-export' },
                     { text: 'Best Practices', link: '/customers/best-practices' },
                 ]
+            },
+            {
+                "text": "Invoices",
+                "collapsed": true,
+                "items": [
+                    { "text": "Overview", "link": "/invoices/overview" },
+                    { "text": "List", "link": "/invoices/list" },
+                    { "text": "Create", "link": "/invoices/create" },
+                    { "text": "Actions", "link": "/invoices/actions" },
+                    { "text": "Best Practices", "link": "/invoices/best-practices" }
+                ]
+            },
+            {
+                "text": "Payment Link",
+                "collapsed": true,
+                "items": [
+                    { "text": "Overview", "link": "/payment-links/overview" },
+                    { "text": "Create a payment link", "link": "/payment-links/create" },
+                    { "text": "Default link", "link": "/payment-links/default-link" },
+                    { "text": "User input fields", "link": "/payment-links/user-input-fields" },
+                    { "text": "Expiry & status", "link": "/payment-links/expiry-status" },
+                    { "text": "Manage links", "link": "/payment-links/manage" },
+                    { "text": "Best Practices", "link": "/payment-links/best-practices" }
+                ]
+            },
+            {
+                "text": "Reports",
+                "collapsed": true,
+                "items": [
+                    { "text": "Overview", "link": "/reports/overview" },
+                    { "text": "Date ranges", "link": "/reports/date-ranges" },
+                    { "text": "Metrics", "link": "/reports/metrics" },
+                    { "text": "Best practices", "link": "/reports/best-practices" }
+                ]
             }
-
         ],
 
         socialLinks: [
