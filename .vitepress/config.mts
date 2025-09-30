@@ -145,7 +145,15 @@ export default defineConfig({
                     { "text": "FAQ", "link": "/brand-settings/faq" },
                     { "text": "Upload Text File", "link": "/brand-settings/text-file" }
                 ]
-            }
+            },
+            {
+                "text": "Administration",
+                "collapsed": true,
+                "items": [
+                    { "text": "Brands", "link": "/administration/brands" },
+                    { "text": "License", "link": "/administration/license" },
+                ]
+            },
         ],
 
         socialLinks: [
