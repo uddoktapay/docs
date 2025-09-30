@@ -26,7 +26,7 @@ If it matches, the SMS is valid.
   AI-powered protection for busy merchants. Approves legitimate transactions even if SMS is delayed or missing (3–5 transactions). Helps prevent service disruption while still blocking fake SMS.
 
 ::: warning
-If balance verification fails, the SMS data must be reviewed manually and approved before the user payment can proceed.
+If balance verification fails, the SMS data must be reviewed manually and approved before the customer’s payment can proceed.
 :::
 
 ## Updating balances

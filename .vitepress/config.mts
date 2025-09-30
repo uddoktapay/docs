@@ -41,6 +41,7 @@ export default defineConfig({
                     { text: 'Create Automatic Gateway', link: '/gateways/create' },
                     { text: 'Create Bank Gateway', link: '/gateways/create-bank' },
                     { text: 'User Input Fields', link: '/gateways/user-input-fields' },
+                    { text: 'Pending Payment', link: '/gateways/pending-payment' },
                     { text: 'Best Practices', link: '/gateways/best-practices' }
                 ]
             },
@@ -110,7 +111,6 @@ export default defineConfig({
                 "collapsed": true,
                 "items": [
                     { "text": "Overview", "link": "/devices/overview" },
-                    { "text": "Device list", "link": "/devices/list" },
                     { "text": "Connect device", "link": "/devices/connect" },
                     { "text": "Balance verification", "link": "/devices/balance-verification" },
                     { "text": "Best practices", "link": "/devices/best-practices" }
@@ -118,15 +118,32 @@ export default defineConfig({
             },
             {
                 "text": "Brand Settings",
+                "collapsed": true,
                 "items": [
                     { "text": "General", "link": "/brand-settings/general" },
                     { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
+                    { "text": "API Settings", "link": "/brand-settings/api" },
                     { "text": "Mail Settings", "link": "/brand-settings/mail" },
-                    { "text": "Notifications", "link": "/brand-settings/notifications" },
-                    { "text": "Themes", "link": "/brand-settings/themes" },
+                    {
+                        "text": "Notifications",
+                        "collapsed": true,
+                        "items": [
+                            { "text": "Overview", "link": "/brand-settings/notifications/index.md" },
+                            { "text": "Developer Guide", "link": "/brand-settings/notifications/developer-guide" },
+                        ]
+                    },
+                    {
+                        "text": "Themes",
+                        "collapsed": true,
+                        "items": [
+                            { "text": "Overview", "link": "/brand-settings/themes/index.md" },
+                            { "text": "Customization", "link": "/brand-settings/themes/customization" },
+                            { "text": "Developer Guide", "link": "/brand-settings/themes/developer-guide" },
+                        ]
+                    },
                     { "text": "SEO", "link": "/brand-settings/seo" },
                     { "text": "FAQ", "link": "/brand-settings/faq" },
-                    { "text": "Upload Text File", "link": "/brand-settings/upload-text-file" }
+                    { "text": "Upload Text File", "link": "/brand-settings/text-file" }
                 ]
             }
         ],

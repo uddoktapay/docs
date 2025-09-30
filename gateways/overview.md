@@ -23,5 +23,5 @@ The gateway list allows you to:
 2. **Bank gateways** — manual transfer methods with predefined bank fields.
 
 ::: tip
-For developers: custom gateways can be added through the [Gateway Development](/developer/gateways) module system.
+For developers: Follow [Gateway Developer](/gateways/developer-guide.md) docs to build custom gateway
 :::
