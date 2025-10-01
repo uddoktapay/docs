@@ -13,6 +13,16 @@ export default defineConfig({
             { text: 'Client Area', link: 'https://my.uddoktapay.com' }
         ],
 
+        aside: false,
+
+        lastUpdated: {
+            text: 'Updated at',
+            formatOptions: {
+                dateStyle: 'full',
+                timeStyle: 'medium'
+            }
+        },
+
         sidebar: [
             {
                 text: 'Guide',
@@ -23,28 +33,10 @@ export default defineConfig({
                     { text: 'Installation', link: '/guide/installation' },
                 ]
             },
-            {
-                text: 'Payments',
-                collapsed: true,
-                items: [
-                    { text: 'Overview', link: '/payments/overview' },
-                    { text: 'Actions', link: '/payments/actions' },
-                    { text: 'Best Practices', link: '/payments/best-practices' },
-                ]
-            },
-            {
-                text: 'Gateways',
-                collapsed: true,
-                items: [
-                    { text: 'Overview', link: '/gateways/overview' },
-                    { text: 'Reorder', link: '/gateways/reorder' },
-                    { text: 'Create Automatic Gateway', link: '/gateways/create' },
-                    { text: 'Create Bank Gateway', link: '/gateways/create-bank' },
-                    { text: 'User Input Fields', link: '/gateways/user-input-fields' },
-                    { text: 'Pending Payment', link: '/gateways/pending-payment' },
-                    { text: 'Best Practices', link: '/gateways/best-practices' }
-                ]
-            },
+            { text: 'Payments', link: '/payments' },
+            { text: 'Gateways', link: '/gateways' },
+            { text: 'Customers', link: '/customers' },
+            { text: 'Invoices', link: '/invoices' },
             {
                 text: 'Gateway Guides',
                 collapsed: true,
@@ -52,16 +44,6 @@ export default defineConfig({
                     { text: 'PayPal', link: '/gateways/guides/paypal' },
                     { text: 'Stripe', link: '/gateways/guides/stripe' },
                     { text: 'Paddle', link: '/gateways/guides/paddle' },
-                ]
-            },
-            {
-                text: 'Customers',
-                collapsed: true,
-                items: [
-                    { text: 'Overview', link: '/customers/overview' },
-                    { text: 'Create & Edit', link: '/customers/create-edit' },
-                    { text: 'Import & Export', link: '/customers/import-export' },
-                    { text: 'Best Practices', link: '/customers/best-practices' },
                 ]
             },
             {
