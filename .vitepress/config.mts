@@ -38,7 +38,6 @@ export default defineConfig({
             { text: 'Customers', link: '/customers' },
             { text: 'Invoices', link: '/invoices' },
             { text: 'Payment Link', link: '/payment-links' },
-            { text: 'Reports', link: '/reports' },
             {
                 "text": "Brand Settings",
                 "collapsed": true,
