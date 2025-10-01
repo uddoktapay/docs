@@ -315,8 +315,6 @@ Follow these practices for reliable gateway management:
 
 - **Configure Pending Payment** — Enable it for non-API gateways if SMS Data connectivity isn't guaranteed.
 
-- **Upload QR codes** — For mobile money gateways, upload a QR code to make payments easier for customers.
-
 - **Monitor gateway status** — Use the toggle to disable gateways during provider downtime or maintenance.  
 
 - **Organize by priority** — Use the reorder function to place most-used gateways at the top.

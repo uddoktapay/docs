@@ -5,7 +5,6 @@ title: Customers
 # Customers
 
 - [Introduction](#introduction)
-- [Customer fields](#customer-fields)
 - [Create & Edit Customers](#create-edit-customers)
   - [Creating a new customer](#creating-a-new-customer)
   - [Editing customer details](#editing-customer-details)
@@ -23,32 +22,6 @@ The **Customers** section lets you maintain a directory of people or businesses 
 - A unique record that links to their payments and invoices
 
 Customers can be created manually, imported from a file, or updated directly in the system. Maintaining accurate customer records improves reporting, prevents duplicates, and enables better customer relationship management.
-
-## Customer fields
-
-Each customer record contains the following fields:
-
-### Required fields
-
-| Field | Description |
-| --- | --- |
-| **Name** | Full name of the customer or business |
-| **Email** | Primary email address for contact and identification |
-| **Phone** | Contact phone number |
-
-### Optional fields
-
-| Field | Description |
-| --- | --- |
-| **Address** | Street address or location details |
-| **City** | City or municipality |
-| **State** | State, province, or region |
-| **Postcode** | Postal or ZIP code |
-| **Country** | Country code (e.g., BD, US, GB) |
-
-::: tip
-While address fields are optional, completing them helps with reporting, invoicing, and compliance requirements in some regions.
-:::
 
 ## Create & Edit Customers
 
@@ -192,39 +165,4 @@ Available actions for customer records:
 
 ::: warning
 Deleting a customer removes their record from the system. Associated payments and invoices will remain but won't be linked to a customer. Only delete customer records if they were created by mistake.
-:::
-
-## Customer Best Practices
-
-Follow these practices to maintain a clean customer database:
-
-### Data quality
-
-- **Use consistent naming** – Decide on a format (e.g., "First Last" or "Last, First") and stick to it.
-- **Validate emails** – Ensure email addresses are typed correctly to prevent bounces and duplicates.
-- **Use international phone format** – Store phone numbers in E.164 format (e.g., +8801712345678) for consistency.
-- **Keep addresses complete** – Fill in all address fields when available for better reporting.
-
-### Preventing duplicates
-
-- **Search before creating** – Check if a customer already exists before adding a new record.
-- **Use email as unique identifier** – Don't create multiple records with the same email.
-- **Standardize data entry** – Train team members on consistent data entry practices.
-
-### Import/Export workflow
-
-- **Test imports first** – Always test with a small file before importing hundreds of records.
-- **Regular backups** – Export your customer list regularly as a backup.
-- **Clean data before import** – Remove duplicates and fix formatting issues in your source file.
-- **Document field mappings** – Keep notes on which fields map where if integrating with other systems.
-
-### Privacy and compliance
-
-- **Collect only necessary data** – Only request address fields if you actually need them.
-- **Update regularly** – Encourage customers to keep their information current.
-- **Respect deletion requests** – Honor customer requests to remove their information.
-- **Secure sensitive data** – Ensure your team follows proper security practices when handling customer information.
-
-::: tip
-Review your customer list quarterly to identify and merge duplicates, update outdated information, and remove test records. A clean customer database improves reporting accuracy and customer experience.
 :::
