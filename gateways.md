@@ -6,148 +6,282 @@ title: Gateways
 
 - [Introduction](#introduction)
   - [Types of gateways](#types-of-gateways)
-- [Payment verification timeline](#payment-verification-timeline)
-- [Reorder gateways](#reorder-gateways)
-- [Create automatic gateway](#create-automatic-gateway)
-  - [Common fields](#common-fields)
-  - [Provider configuration](#provider-configuration)
-- [Create bank gateway](#create-bank-gateway)
-    - [User input fields](#user-input-fields)
-        - [Available field types](#available-field-types)
+- [Gateway List View](#gateway-list-view)
+  - [Automatic Gateways](#automatic-gateways)
+  - [Bank Gateways](#bank-gateways)
+- [Create Automatic Gateway](#create-automatic-gateway)
+  - [Available gateway providers](#available-gateway-providers)
+  - [Gateway Information](#gateway-information)
+  - [Configuration](#configuration)
+- [Create Bank Gateway](#create-bank-gateway)
+  - [Gateway Information](#gateway-information-1)
+  - [Gateway Logo](#gateway-logo)
+  - [Gateway Description](#gateway-description)
+  - [Bank Information](#bank-information)
+  - [User Input Fields](#user-input-fields)
+  - [Save options](#save-options)
+- [Edit Gateway](#edit-gateway)
+  - [Available actions](#available-actions)
+- [User Input Fields](#user-input-fields-1)
+  - [Available field types](#available-field-types)
+  - [Field configuration](#field-configuration)
 - [Pending Payment](#pending-payment)
-    - [How it Works](#how-it-works)
-- [Gateway best practices](#gateway-best-practices)
+  - [How it works](#how-it-works)
+- [Gateway Best Practices](#gateway-best-practices)
 
 ## Introduction
 
 Gateways let you accept payments via APIs (automatic) or offline/manual channels (bank). Configure which methods appear at checkout, their order, limits, and fees.
 
-## Types of gateways
+Access the Gateways module from the sidebar to view and manage your payment gateways. The interface is organized into two main categories: **Automatic** gateways and **Bank Gateways**.
 
-1. **Automatic gateways** — API-based integrations with providers like PayPal, Stripe, bKash, Nagad, EPS, etc.  
-2. **Bank gateways** — manual transfer methods with predefined bank fields and proof collection.
+### Types of gateways
 
-::: tip
-For developers: follow the [Gateway Developer](#developer-guide) docs to build a custom gateway.
-:::
-
-
-## Payment verification timeline
-
-What happens from the moment a customer selects a gateway to when a payment is completed—covering both API and non-API flows.
-
-**A. Automatic (API) gateways**
-1. Customer selects gateway → submits payment.
-2. System sends API request to provider.
-3. Provider returns **success/pending/failed**.
-4. - **Success:** Payment marked **Completed**.
-   - **Pending:** Payment marked **Pending** and updated when the provider sends webhook/IPN.
-   - **Failed:** Error shown; payment not created (or created as **Failed**, depending on provider behavior).
-
-**B. Personal/Agent/Merchant (non-API) automation**
-1. Customer sends money → receives a transaction ID (TrxID).
-2. Customer submits TrxID in checkout.
-3. System attempts to match via **SMS Data**:
-   - **Device connected & SMS received:** Auto-match → **Completed**.
-   - **Device offline or SMS missing:**
-     - **Pending Payment enabled:** Create **Pending** payment; customer sees Pending page.
-     - **Pending Payment disabled:** Show “Transaction not found” error; no payment created.
-4. Admin may later:
-   - Add the SMS manually to **SMS Data** and **Verify**.
-   - Approve/Reject a **Pending** payment.
+1. **Automatic gateways** — API-based integrations with providers like Payeer, PayPal, bKash, Nagad, etc.  
+2. **Bank gateways** — Manual transfer methods with predefined bank fields and proof collection.
 
 ::: tip
-If your device connectivity is not guaranteed, keep **Pending Payment** enabled so customers aren’t blocked during temporary SMS delays.
+For developers: Follow the Gateway Developer docs to build custom gateway integrations.
 :::
 
+## Gateway List View
 
-## Reorder gateways
+The gateway list displays all configured payment methods organized by type. Each gateway shows:
 
-Click the **Reorder** icon to open the drag-and-drop view. Arrange gateways in the desired order and **Save**.  
-This order controls how gateways are suggested during checkout.
+- **Display name** — Name shown to customers at checkout
+- **Currency** — Supported currency (USD, BDT, etc.)
+- **Status** — Inline toggle to enable/disable the gateway
+
+### Automatic Gateways
+
+View and manage API-based gateways by clicking **Automatic** in the sidebar navigation under Gateways. This section lists all automatic payment providers.
+
+### Bank Gateways
+
+Access manual bank transfer gateways by clicking **Bank Gateways** in the sidebar navigation. This section displays bank gateways configured for offline payments.
+
+**Available actions for all gateways:**
+
+- **Edit** — Modify gateway configuration and settings
+- **Replicate** — Duplicate a bank gateway to create a similar one (Bank Gateways only)
+- **Delete** — Remove the gateway permanently
+- **Status Toggle** — Enable/disable the gateway without deleting
 
 ::: tip
-Keep the most frequently used or highest-conversion methods at the top.
+Use the **Search** bar at the top right to quickly find specific gateways. The reorder icon (↕) lets you drag and drop gateways to change their display order at checkout.
 :::
 
-## Create automatic gateway
+## Create Automatic Gateway
 
-From **Gateways → New gateway**, select a provider (e.g., **bKash API**, **PayPal**, **EPS**, etc.).  
-Each automatic gateway has its own configuration, but most share a common structure.
+To add a new automatic gateway, click **New gateway** from the Automatic Gateways list.
 
-### Common fields
+### Available gateway providers
 
-| Field | Description |
-| --- | --- |
-| **Display Name** | Shown to customers at checkout. Use a clear, recognizable label (e.g., “bKash Personal”). |
-| **Currency** | Currency this gateway processes. Must match your provider account. |
-| **Minimum Amount / Maximum Amount** | Allowed transaction range. **Max = 0** means **no limit**. |
-| **Charges** | Fixed fee and percentage fee applied per transaction. |
+A modal will appear with a searchable dropdown showing available providers grouped by currency.
+
+::: tip
+Use the search box in the gateway selector to quickly find your desired provider. Gateways are automatically filtered based on your business requirements.
+:::
+
+### Gateway Information
+
+Once you select a provider, you'll see the Edit Gateway form with two main sections.
+
+**Basic gateway configuration and settings:**
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| **Gateway Name** | Internal name of the gateway provider (auto-filled, usually not editable) | Yes |
+| **Display Name** | Name shown to customers during checkout | Yes |
+| **Minimum Amount** | Minimum transaction amount allowed | Yes |
+| **Maximum Amount** | Maximum transaction amount allowed (0 = no limit) | Yes |
+| **Fixed Charge** | Fixed fee charged per transaction | Yes |
+| **Percentage Charge** | Percentage fee charged per transaction | Yes |
+| **QR Code** | Upload a QR code image for this gateway (optional) | No |
+
+**Additional fields (varies by gateway type):**
+
+For non-API gateways (Personal, Agent, Merchant):
+- **Number** — The mobile number or account identifier for receiving payments
+- **Pending Payment** — Dropdown to enable/disable pending payment feature
 
 ::: warning
-If the checkout amount is outside the defined **Minimum** or **Maximum**, the gateway will not appear.
+If the checkout amount is outside the defined **Minimum** or **Maximum**, the gateway will not appear as an option for customers.
 :::
 
-### Provider configuration
+### Configuration
 
-May include:
+Gateway-specific configuration parameters vary by provider.
 
-- **Sandbox Mode** — toggle between testing and live environments.  
-- **Credentials** — e.g., Client ID/Secret, Username/Password, App Key/App Secret.  
+**For API gateways (like Payeer):**
+- **Success url** — Redirect URL after successful payment
+- **Fail url** — Redirect URL after failed payment
+- **Status url** — Webhook/IPN URL for payment status updates
+- **Merchant id** — Your merchant identifier from the provider
+- **Secret key** — API secret key for authentication
+- **Additional encryption key** — Extra security key (if required by provider)
 
-## Create bank gateway
-
-Bank Gateways are used for offline transfers. They collect user proof and are approved from the Payments module.
-
-**Steps:**
-
-1. Click **New bank gateway**.  
-2. Fill **Gateway Information**:
-   - **Gateway Name** and **Display Name**
-   - **Currency**
-   - **Minimum / Maximum Amount**
-   - **Fixed / Percentage Charges**
-3. Upload a **Logo** and optional **Description**.  
-4. Fill **Bank Information** (Bank Name, Account Holder, Account Number, Branch, Routing, SWIFT/BIC).  
-5. Configure **User Input Fields** (e.g., TrxID, slip upload).  
-6. **Save**.
+**For non-API gateways (Personal/Agent/Merchant):**
+- **Number** — The account number that receives payments
+- **Pending Payment** — Enable or Disable pending payment handling
 
 ::: tip
-Need similar variations? Use **Replicate** on the list page to duplicate a bank gateway.
+Always keep your API credentials secure. Never share Secret keys or Merchant IDs publicly.
 :::
 
+## Create Bank Gateway
+
+To add a manual bank transfer gateway, click **New bank gateway** from the Bank Gateways list.
+
+### Gateway Information
+
+**Basic gateway configuration and settings:**
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| **Gateway Name** | Internal identifier for the bank gateway | Yes |
+| **Currency** | Currency for this gateway (e.g., BDT, USD) | Yes |
+| **Minimum Amount** | Minimum transaction amount allowed | Yes |
+| **Maximum Amount** | Maximum transaction amount allowed (0 = no limit) | Yes |
+| **Fixed Charge** | Fixed fee charged per transaction | Yes |
+| **Percentage Charge** | Percentage fee charged per transaction | Yes |
+
+### Gateway Logo
+
+**Upload a logo to represent this payment gateway**
+
+- Drag & Drop your files or click **Browse**
+- Logo size should be in JPG, JPEG or PNG (500 × 200 pixels) format
+- This logo appears on the checkout page for customer recognition
+
+### Gateway Description
+
+**Provide additional information about this payment method**
+
+| Field | Description |
+|-------|-------------|
+| **Description** | Detailed description of the gateway for administrative reference (max 5000 characters) |
+
+### Bank Information
+
+**Bank account details for manual transfer processing:**
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| **Bank Name** | Full name of the bank or financial institution | Yes |
+| **Account Holder Name** | Name of the account holder as registered with the bank | Yes |
+| **Account Number** | Bank account number for receiving payments | Yes |
+| **Branch Name** | Name or address of the bank branch | Yes |
+| **Routing Number** | Bank routing number (ABA number for US banks, optional) | No |
+| **SWIFT/BIC Code** | International bank identifier code (required for international transfers) | No |
+
+::: tip
+Fill in all bank details carefully. Customers will see this information when making manual transfers.
+:::
 
 ### User Input Fields
 
-User input fields allow you to collect extra information from customers during checkout.  
-They are especially useful for **Bank Gateways** where proof of payment is required.
+**Configure additional fields that users need to fill during payment**
 
-#### Available field types
+This section allows you to collect proof of payment and other necessary information from customers. See [User Input Fields](#user-input-fields-1) below for detailed configuration.
 
-- **Text** — e.g., Transaction ID, Reference Number
-- **Email** — to confirm payer’s contact
-- **Number** — for mobile or account numbers
-- **File Upload** (where supported) — proof of payment screenshot
-- **Dropdown / Select** (custom options) — let customers pick a payment branch or method
+### Save options
+
+Choose how to save your bank gateway:
+
+- **Create** — Save and return to the bank gateways list  
+- **Create & create another** — Save and immediately open a new form to create another bank gateway
+- **Back** — Return to the list without saving
+
+::: tip
+Use **Replicate** on existing bank gateways to quickly create similar configurations with different bank details.
+:::
+
+## Edit Gateway
+
+Click the **Edit** action on any gateway to modify its configuration. The edit form contains the same sections as the create form.
+
+### Available actions
+
+From the gateway list:
+
+- **Edit** — Open the gateway configuration form
+- **Replicate** (Bank Gateways only) — Duplicate the gateway with all settings
+- **Delete** — Remove the gateway permanently
+- **Status Toggle** — Enable/disable without opening the edit form
+
+From the edit page:
+
+- **Save changes** — Apply modifications and return to the list
+- **Back** — Return without saving changes
+- **Delete** (red button, top right) — Remove the gateway
+
+::: warning
+Deleting a gateway does not affect completed payments made through it. However, the gateway will no longer be available for new transactions.
+:::
+
+## User Input Fields
+
+User input fields allow you to collect extra information from customers during checkout. They are especially useful for **Bank Gateways** where proof of payment is required.
+
+### Available field types
+
+The following input types are available:
+
+- **Text** — Single-line text input (e.g., Transaction ID, Reference Number)
+- **Textarea** — Multi-line text area (e.g., payment notes, instructions)
+- **Select** — Dropdown with predefined options (e.g., payment branch, transfer type)
+- **Radio** — Single choice from multiple options (e.g., account type)
+- **Checkbox** — Multiple selections allowed (e.g., confirmation checkboxes)
+- **File** — File upload for proof of payment (e.g., screenshot, receipt)
+
+::: tip
+For bank gateways, always include at least one **Text** field for Transaction ID and one **File** field for payment proof upload.
+:::
+
+### Field configuration
+
+For each field you add, configure:
+
+- **Form Type** — Select from available input types (required, red asterisk)
+- **Field Name** — Label displayed to customers (required, red asterisk)
+- **Is Required** — Toggle to make the field mandatory
+
+**Managing fields:**
+
+- **Reorder** — Use the drag handles (↕ ↑ ↓) to arrange field order
+- **Delete** — Click the red trash icon to remove a field
+- **Add** — Click **Add new field** at the bottom to add more fields
 
 ::: tip
 Keep required fields limited to what you need to verify a payment. Extra required fields can reduce completion rates.
 :::
 
+**Example configuration for a bank gateway:**
+
+| Form Type | Field Name | Is Required |
+|-----------|------------|-------------|
+| Text | Transaction ID | Yes |
+| File | Payment Screenshot | Yes |
+| Textarea | Additional Notes | No |
+| Select | Payment Branch | No |
+
 
 ## Pending Payment
 
-Pending Payment governs what happens when a customer submits a TrxID that can’t be verified automatically.
+The Pending Payment setting governs what happens when a customer submits a TrxID that can't be verified automatically.
 
 ### How it works
 
-- **Enabled**  
-  - Unverified payments are marked **Pending** and the customer sees a Pending page.  
-  - Admin can approve/reject after review.
+Configure this setting in the gateway's **Configuration** section:
 
-- **Disabled**  
-  - Unverified TrxID results in an error:  
-    *“Transaction not found, please try again later.”*  
+- **Enable**  
+  - Unverified payments are marked **Pending** and the customer sees a Pending page.  
+  - Admin can approve/reject after review from the Payments module.
+
+- **Disable**  
+  - Unverified TrxID results in an error: *"Transaction not found, please try again later."*  
+  - Payment remains in **Initiated** status until verification succeeds.
 
 ### With Personal, Agent & Merchant (non-API) gateways
 
@@ -160,20 +294,39 @@ Pending Payment governs what happens when a customer submits a TrxID that can’
 ::: tip
 - Keep **Pending Payment enabled** as a fallback if devices may go offline.  
 - If you rely on manual SMS entry, **Pending** should be enabled or customers will see errors until you update SMS Data.  
-- For the smoothest experience, connect at least one active device.
+- For the smoothest experience, connect at least one active device to SMS Data.
 :::
 
-## Gateway best practices
+## Gateway Best Practices
 
-- **Enable only what you use** — disable unused gateways.  
-- **Sandbox first** — validate flows before going live.  
-- **Name clearly** — e.g., “bKash Personal” (not “Bkash_01”).  
-- **Set proper limits** — ensure min/max reflect your real policy.  
-- **Verify fees** — fixed + % must match your provider agreement.  
-- **Bank gateways** — request proof fields (TrxID, slip).  
-- **Monitor status** — toggle off during provider downtime.  
-- **Review monthly** — credentials, charges, visibility, and order.
+Follow these practices for reliable gateway management:
+
+- **Enable only what you use** — Disable unused gateways to avoid customer confusion.  
+
+- **Test thoroughly** — For API gateways, use sandbox mode first to validate the integration.  
+
+- **Name clearly** — Use descriptive display names like "bKash Personal" instead of generic names like "Gateway 1".  
+
+- **Set proper limits** — Ensure minimum/maximum amounts reflect your actual business policies.  
+
+- **Verify fees** — Fixed + percentage charges must match your provider agreement to avoid losses.  
+
+- **Bank gateways require proof** — Always configure Transaction ID and file upload fields for verification.  
+
+- **Configure Pending Payment** — Enable it for non-API gateways if SMS Data connectivity isn't guaranteed.
+
+- **Upload QR codes** — For mobile money gateways, upload a QR code to make payments easier for customers.
+
+- **Monitor gateway status** — Use the toggle to disable gateways during provider downtime or maintenance.  
+
+- **Organize by priority** — Use the reorder function to place most-used gateways at the top.
+
+- **Secure credentials** — Never share API keys, merchant IDs, or secret keys publicly.
+
+- **Review regularly** — Check credentials, charges, and settings monthly to ensure accuracy.  
+
+- **Use Replicate wisely** — For bank gateways with similar configurations, use Replicate instead of creating from scratch.
 
 ::: tip
-Revisit your gateway list monthly to confirm charges, credentials, and active status are correct.
+Revisit your gateway configuration monthly to confirm charges, credentials, active status, and customer-facing names are correct.
 :::
