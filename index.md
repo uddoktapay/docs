@@ -1,36 +1,171 @@
 ---
-title: UddoktaPay
+title: Getting Started
 ---
 
-# What is UddoktaPay?
+# Getting Started with UddoktaPay
 
-UddoktaPay is a **self-hosted and hosted payment automation platform** designed to simplify payment management for businesses of all sizes.  
-It helps entrepreneurs, agencies, and enterprises manage **multiple brands, customers, invoices, payment links, and gateways** — all from one secure dashboard.
+Welcome to UddoktaPay! This guide will help you set up and configure your payment gateway system.
 
----
+## Choose Your Setup
 
-## Key Highlights
+**Hosted Version**  
+No installation required—sign up and start accepting payments immediately.
 
-- **Multi-Brand Support**  
-  Manage multiple brands, domains, and settings under one system.  
-- **Payments & Gateways**  
-  Accept and automate transactions with bKash, Nagad, Rocket, Paypal, Paddle, Stripe etc, and custom modular gateways.  
-- **Customer Management**  
-  Keep track of customers, transactions, and business relationships.  
-- **Invoicing**  
-  Generate, send, and track invoices with live payment status updates.  
-- **Payment Links**  
-  Share secure payment links for quick and hassle-free collections.  
-- **Role & Permission Management**  
-  Define staff roles, control access, and manage teams with ease.  
-- **Customization**  
-  Themes, notification channels, and modular extensions to fit your business needs.  
+[Get UddoktaPay Hosted →](https://my.uddoktapay.com/store/uddoktapay-hosted)
 
----
+**Self-Hosted Version**  
+Install UddoktaPay on your own VPS or server for complete control over data and customization.
 
-## Why UddoktaPay?
+Continue reading for self-hosted installation instructions.
 
-- **Self-Hosted & Secure** → Run on your own VPS or server with full control of your data.  
-- **Scalable** → From startups to enterprises, easily handle growing transaction volumes.  
-- **Flexible** → Modular architecture to add gateways, notifications, or themes.  
-- **Automation First** → Smart balance verification, 2FA, and instant notifications.
+## Before You Begin
+
+**Check System Requirements**  
+Ensure your server meets all technical prerequisites.
+
+[View System Requirements →](/system-requirements)
+
+**What you'll need:**
+- PHP 8.2+ with IonCube Loader
+- MySQL 8.0+ or MariaDB 10.3+
+- SSL certificate (required for production)
+- Cron job access
+- Email account for notifications
+
+## Installation
+
+Detailed installation guides are available for various hosting platforms:
+
+- **cPanel** - Most common shared hosting
+- **Hostinger** - Popular affordable hosting  
+- **aaPanel** - Free cPanel alternative
+- **CloudPanel** - Modern cloud-focused panel
+- **CyberPanel** - OpenLiteSpeed-based panel
+- **VPS (Ubuntu)** - Automated one-command installation
+- **Docker** - Containerized deployment
+
+**General installation steps:**
+
+1. Download installer package from [my.uddoktapay.com](https://my.uddoktapay.com)
+2. Upload files to your web root
+3. Visit your domain to start installation wizard
+4. Enter database credentials
+5. Create admin account
+6. Complete installation
+
+## Post-Installation Setup
+
+After installation completes, configure these essential settings:
+
+### 1. Validate License
+
+1. Go to **Administration → License**
+2. Click **Validate License**
+3. Enter your license key from my.uddoktapay.com
+4. Click **Submit**
+
+[License Documentation →](/administration/license)
+
+### 2. Configure Cron Job
+
+Background tasks require a cron job running every minute.
+
+[Cron Job Setup →](/system-settings/cron-job)
+
+Without a cron job, notifications won't send and scheduled tasks won't run.
+
+### 3. Brand Settings
+
+Configure your brand identity:
+
+- **General** — Site name, timezone, currency, language
+- **Logo & Favicon** — Upload branding images
+- **Mail Settings** — SMTP or email provider configuration
+- **API Settings** — Generate API keys for integrations
+
+[Brand Settings Overview →](/brand-settings/overview)
+
+### 4. Payment Gateways
+
+Add payment methods:
+
+**Automatic Gateways:**  
+API-based integrations (bKash, Nagad, Rocket, PayPal, Stripe, etc.)
+
+**Bank Gateways:**  
+Manual bank transfers with proof of payment upload
+
+[Gateway Setup Guide →](/gateways)
+
+### 5. Notification Channels
+
+Configure alerts for payment events:
+
+- **Database** — In-dashboard notifications
+- **Mail** — Email alerts to admins
+- **Telegram** — Instant messaging alerts
+- **Slack/Discord** — Team channel notifications
+- **Webhook** — Custom integrations (n8n, Make, Zapier)
+
+[Notification Setup →](/brand-settings/notifications)
+
+## Test Your Setup
+
+After basic configuration, create a test payment:
+
+**Option 1: Payment Link**
+
+1. Go to **Payment Links → New payment link**
+2. Enter amount and customer details
+3. Generate and test the payment link
+
+**Option 2: Invoice**
+
+1. Go to **Invoices → New invoice**
+2. Add customer information
+3. Add line items
+4. Send invoice to customer
+
+Test the complete payment flow to ensure everything works correctly.
+
+## Optional Configuration
+
+### Multi-Brand Setup
+
+Run multiple storefronts from one installation:
+
+[Brands Configuration →](/administration/brands)
+
+### Team Management
+
+Add staff members with specific permissions:
+
+[Staff Management →](/system-settings/staff-management)  
+[Access Roles →](/system-settings/access-roles)
+
+*Requires Role Management addon*
+
+### Customize Appearance
+
+Modify checkout page design:
+
+[Themes →](/brand-settings/themes)
+
+### SMS Data Integration
+
+Automatic payment verification via SMS:
+
+[SMS Data Setup →](/sms-data)
+
+*Optional but recommended for automatic verification*
+
+## Getting Help
+
+**Search Documentation**  
+
+**Support Resources:**
+- [System Requirements](/system-requirements) - Technical specifications
+- [my.uddoktapay.com](https://my.uddoktapay.com) - Account and license management
+
+**Need Assistance?**  
+Contact support through your client area at [my.uddoktapay.com](https://my.uddoktapay.com).

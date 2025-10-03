@@ -24,13 +24,19 @@ export default defineConfig({
         },
 
         sidebar: [
+            { text: 'Getting Started', link: '/' },
+            { text: 'System Requirements', link: '/system-requirements' },
             {
-                text: 'Guide',
+                text: 'Installation Guide',
                 collapsed: false,
                 items: [
-                    { text: 'Getting Started', link: '/guide/getting-started' },
-                    { text: 'System Requirements', link: '/guide/system-requirements' },
-                    { text: 'Installation', link: '/guide/installation' },
+                    { text: 'cPanel', link: '/installation/cpanel' },
+                    { text: 'Hostinger', link: '/installation/hostinger' },
+                    { text: 'CloudPanel', link: '/installation/cloudpanel' },
+                    { text: 'aaPanel', link: '/installation/aapanel' },
+                    { text: 'CyberPanel', link: '/installation/cyberpanel' },
+                    { text: 'VPS (Ubuntu)', link: '/installation/vps' },
+                    { text: 'Docker', link: '/installation/docker' },
                 ]
             },
             { text: 'Payments', link: '/payments' },
@@ -42,7 +48,7 @@ export default defineConfig({
                 "text": "Brand Settings",
                 "collapsed": true,
                 "items": [
-                    { "text": "Overview", "link": "/brand-settings/" },
+                    { "text": "Overview", "link": "/brand-settings/overview" },
                     { "text": "General", "link": "/brand-settings/general" },
                     { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
                     { "text": "API Settings", "link": "/brand-settings/api" },
