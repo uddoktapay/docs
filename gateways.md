@@ -9,6 +9,7 @@ title: Gateways
 - [Gateway List View](#gateway-list-view)
   - [Automatic Gateways](#automatic-gateways)
   - [Bank Gateways](#bank-gateways)
+- [Reorder Gateways](#reorder-gateways)
 - [Create Automatic Gateway](#create-automatic-gateway)
   - [Available gateway providers](#available-gateway-providers)
   - [Gateway Information](#gateway-information)
@@ -19,7 +20,6 @@ title: Gateways
   - [Gateway Description](#gateway-description)
   - [Bank Information](#bank-information)
   - [User Input Fields](#user-input-fields)
-  - [Save options](#save-options)
 - [Edit Gateway](#edit-gateway)
   - [Available actions](#available-actions)
 - [User Input Fields](#user-input-fields-1)
@@ -27,6 +27,7 @@ title: Gateways
   - [Field configuration](#field-configuration)
 - [Pending Payment](#pending-payment)
   - [How it works](#how-it-works)
+- [Custom Gateway Development](#custom-gateway-development)
 - [Gateway Best Practices](#gateway-best-practices)
 
 ## Introduction
@@ -69,6 +70,50 @@ Access manual bank transfer gateways by clicking **Bank Gateways** in the sideba
 
 ::: tip
 Use the **Search** bar at the top right to quickly find specific gateways. The reorder icon (↕) lets you drag and drop gateways to change their display order at checkout.
+:::
+
+
+## Reorder Gateways
+
+Control the order gateways appear to customers during checkout. The order you set determines which payment methods customers see first.
+
+**To reorder gateways:**
+
+1. Click the **Reorder** icon (↕) at the top of the gateway list
+2. A drag-and-drop interface opens showing all gateways
+3. Click and hold the drag handle on any gateway
+4. Drag the gateway up or down to the desired position
+5. Release to drop in the new position
+6. Click **Save** to apply the new order
+
+The order saves immediately and affects all checkout pages, payment links, and invoices.
+
+**Display order strategy:**
+
+- **Top positions** — Most frequently used payment methods
+- **Middle positions** — Alternative payment options
+- **Bottom positions** — Rarely used or backup methods
+
+**Examples:**
+
+**High-volume business:**
+1. bKash Personal (most customers use)
+2. Nagad Personal
+3. Bank Transfer
+4. PayPal (international)
+
+**International focus:**
+1. PayPal
+2. Stripe
+3. Local bank transfer
+4. bKash (for local customers)
+
+::: tip
+Place your highest-conversion payment methods at the top. Customers are more likely to choose options they see first. Review and adjust order based on actual usage patterns.
+:::
+
+::: warning
+Reordering only affects the display sequence at checkout. It does not change gateway settings, limits, or fees. All enabled gateways remain available regardless of position.
 :::
 
 ## Create Automatic Gateway
@@ -185,14 +230,6 @@ Fill in all bank details carefully. Customers will see this information when mak
 
 This section allows you to collect proof of payment and other necessary information from customers. See [User Input Fields](#user-input-fields-1) below for detailed configuration.
 
-### Save options
-
-Choose how to save your bank gateway:
-
-- **Create** — Save and return to the bank gateways list  
-- **Create & create another** — Save and immediately open a new form to create another bank gateway
-- **Back** — Return to the list without saving
-
 ::: tip
 Use **Replicate** on existing bank gateways to quickly create similar configurations with different bank details.
 :::
@@ -209,12 +246,6 @@ From the gateway list:
 - **Replicate** (Bank Gateways only) — Duplicate the gateway with all settings
 - **Delete** — Remove the gateway permanently
 - **Status Toggle** — Enable/disable without opening the edit form
-
-From the edit page:
-
-- **Save changes** — Apply modifications and return to the list
-- **Back** — Return without saving changes
-- **Delete** (red button, top right) — Remove the gateway
 
 ::: warning
 Deleting a gateway does not affect completed payments made through it. However, the gateway will no longer be available for new transactions.
@@ -295,6 +326,31 @@ Configure this setting in the gateway's **Configuration** section:
 - Keep **Pending Payment enabled** as a fallback if devices may go offline.  
 - If you rely on manual SMS entry, **Pending** should be enabled or customers will see errors until you update SMS Data.  
 - For the smoothest experience, connect at least one active device to SMS Data.
+:::
+
+
+## Custom Gateway Development
+
+Need a payment gateway not currently supported? UddoktaPay allows developers to create custom gateway integrations.
+
+::: tip
+**For Developers:**  
+Build custom gateway drivers for any payment provider with an API. Custom gateways integrate seamlessly with the existing payment flow and appear alongside built-in gateways.
+
+See the [Developer Guide](/developers/custom-gateways) for implementation details, including:
+- Creating custom gateway drivers
+- Implementing checkout methods
+- Handling payment verification
+- Processing refunds and callbacks
+- Registering custom gateways
+- Testing and debugging
+
+**Common use cases:**
+- Local payment providers not yet integrated
+- Regional mobile money services
+- Bank-specific payment APIs
+- Custom payment processors
+- Internal payment systems
 :::
 
 ## Gateway Best Practices

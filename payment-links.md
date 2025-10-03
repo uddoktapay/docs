@@ -12,7 +12,6 @@ title: Payment Links
   - [Required fields](#required-fields)
   - [Optional fields](#optional-fields)
   - [User input fields](#user-input-fields)
-  - [Save options](#save-options)
 - [Manage Payment Links](#manage-payment-links)
   - [Available actions](#available-actions)
 - [User Input Fields](#user-input-fields-1)
@@ -94,13 +93,6 @@ Below the main form, you'll see a **User input fields** section where you can ad
 ::: tip
 Use clear, descriptive product names (e.g., "Workshop Seat – Early Bird" instead of "Product 1"). It makes searching, reporting, and customer communication much easier.
 :::
-
-### Save options
-
-Choose how to save your payment link:
-
-- **Create** — Save and return to the payment links list  
-- **Create & create another** — Save and immediately open a new blank form for creating another link
 
 ::: tip
 Use **Create & create another** when setting up multiple payment links for an event or product launch. It saves time by keeping you in the creation flow.

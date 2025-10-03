@@ -242,10 +242,6 @@ Click **Edit** from the payment details page to modify payment information.
 - Refunded
 - Partially Refunded
 
-**Actions:**
-- **Save changes** — Apply modifications
-- **Cancel** — Return without saving
-
 ::: warning
 Changing the status manually bypasses normal verification workflows. Only use this when necessary, such as correcting errors or handling special cases.
 :::

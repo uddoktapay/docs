@@ -42,30 +42,16 @@ export default defineConfig({
                 "text": "Brand Settings",
                 "collapsed": true,
                 "items": [
+                    { "text": "Overview", "link": "/brand-settings/" },
                     { "text": "General", "link": "/brand-settings/general" },
                     { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
                     { "text": "API Settings", "link": "/brand-settings/api" },
                     { "text": "Mail Settings", "link": "/brand-settings/mail" },
-                    {
-                        "text": "Notifications",
-                        "collapsed": true,
-                        "items": [
-                            { "text": "Overview", "link": "/brand-settings/notifications/index.md" },
-                            { "text": "Developer Guide", "link": "/brand-settings/notifications/developer-guide" },
-                        ]
-                    },
-                    {
-                        "text": "Themes",
-                        "collapsed": true,
-                        "items": [
-                            { "text": "Overview", "link": "/brand-settings/themes/index.md" },
-                            { "text": "Customization", "link": "/brand-settings/themes/customization" },
-                            { "text": "Developer Guide", "link": "/brand-settings/themes/developer-guide" },
-                        ]
-                    },
-                    { "text": "SEO", "link": "/brand-settings/seo" },
+                    { "text": "Notifications Channels", "link": "/brand-settings/notifications" },
+                    { "text": "Themes", "link": "/brand-settings/themes" },
+                    { "text": "Text File", "link": "/brand-settings/text-file" },
                     { "text": "FAQ", "link": "/brand-settings/faq" },
-                    { "text": "Upload Text File", "link": "/brand-settings/text-file" }
+                    { "text": "SEO", "link": "/brand-settings/seo" }
                 ]
             },
             {
@@ -86,30 +72,13 @@ export default defineConfig({
                         "text": "System Settings",
                         "collapsed": true,
                         "items": [
-                            { "text": "General", "link": "/brand-settings/general" },
-                            { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
-                            { "text": "API Settings", "link": "/brand-settings/api" },
-                            { "text": "Mail Settings", "link": "/brand-settings/mail" },
-                            {
-                                "text": "Notifications",
-                                "collapsed": true,
-                                "items": [
-                                    { "text": "Overview", "link": "/brand-settings/notifications/index.md" },
-                                    { "text": "Developer Guide", "link": "/brand-settings/notifications/developer-guide" },
-                                ]
-                            },
-                            {
-                                "text": "Themes",
-                                "collapsed": true,
-                                "items": [
-                                    { "text": "Overview", "link": "/brand-settings/themes/index.md" },
-                                    { "text": "Customization", "link": "/brand-settings/themes/customization" },
-                                    { "text": "Developer Guide", "link": "/brand-settings/themes/developer-guide" },
-                                ]
-                            },
-                            { "text": "SEO", "link": "/brand-settings/seo" },
-                            { "text": "FAQ", "link": "/brand-settings/faq" },
-                            { "text": "Upload Text File", "link": "/brand-settings/text-file" }
+                            { "text": "Overview", "link": "/system-settings/overview" },
+                            { "text": "General", "link": "/system-settings/general" },
+                            { "text": "Cron Job", "link": "/system-settings/cron-job" },
+                            { "text": "Staff Management", "link": "/system-settings/staff-management" },
+                            { "text": "Access Roles", "link": "/system-settings/access-roles" },
+                            { "text": "Addons", "link": "/system-settings/addons" },
+                            { "text": "System Update", "link": "/system-settings/system-update" }
                         ]
                     }
                 ]

@@ -147,11 +147,6 @@ Automatic Entry parses the full SMS message from supported payment providers to 
    - Pathao Pay
 5. **Message (Copy & Paste from SMS)** (required) — Paste the complete SMS text exactly as received
 
-**Save options:**
-- **Create** — Save and return to SMS Data list
-- **Create & create another** — Save and open a new form
-- **Back** — Return without saving
-
 ### Supported payment methods
 
 The system can automatically parse SMS messages from:
@@ -213,11 +208,6 @@ When you select **Manual Entry**, the form displays these fields:
 - **Approved** — Ready for payment verification (default)
 - **Used** — Already matched to a payment
 
-**Save options:**
-- **Create** — Save and return to SMS Data list
-- **Create & create another** — Save and open a new form
-- **Back** — Return without saving
-
 ::: tip
 Use Manual Entry as a fallback when SMS messages can't be automatically parsed. If you have the SMS text, always try **Automatic Entry** first for accuracy.
 :::
@@ -237,11 +227,6 @@ Click **Edit** from the actions menu to modify an existing SMS Data record.
 - **Reference** — Additional reference (optional)
 - **Note** — Internal notes (optional)
 - **Status** — Current status (dropdown: Awaiting Review, Approved, Used)
-
-**Actions:**
-- **Save changes** (blue button) — Apply modifications
-- **Back** — Return without saving
-- **Delete** (red button, top right) — Remove the SMS Data record
 
 ::: warning
 Editing an SMS Data record that's already **Used** (matched to a payment) won't affect the completed payment. Exercise caution when editing Used records.

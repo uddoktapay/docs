@@ -4,108 +4,224 @@ title: Text File
 
 # Text File
 
-Use **Text Files** to host small, text-only files (e.g., Google site verification, payment provider/domain verification) directly from your UddoktaPay instance—without server or DNS access.
+- [Introduction](#introduction)
+- [When to Use](#when-to-use)
+- [How It Works](#how-it-works)
+- [Upload Text File](#upload-text-file)
+- [Manage Text Files](#manage-text-files)
+- [URL Format](#url-format)
+- [Best Practices](#best-practices)
+- [Troubleshooting](#troubleshooting)
 
-- Supported formats: **TXT**, **XML** and **HTML**  
-- Public URL pattern: `https://your-domain.tld/{filename}`  
-  - Example: `https://selfhosted.test/payeer_2225076242.txt`
+## Introduction
+
+Text Files allow you to host small, text-based verification files directly from your UddoktaPay instance without requiring server or DNS access.
+
+Access Text Files from **Brand Settings → Text File** to manage publicly accessible verification files.
+
+**Supported formats:**
+- TXT (text files)
+- XML (markup files)
+- HTML (web pages)
+
+**Public URL pattern:**  
+`https://your-domain.tld/{filename}`
+
+Example: `https://example.test/payeer_2225076242.txt`
 
 ::: tip
-Only **active** files are publicly accessible. You can enable/disable any file at any time.
+Only **active** files are publicly accessible. Toggle the Active status to show/hide files instantly without deleting them.
 :::
 
----
+## When to Use
 
-## When to use
+Text Files are designed for verification and ownership proof scenarios:
 
-- **Google Search Console** site verification (`googleXXXXXXXXXXXX.html` / `.txt`)  
-- **Payment provider** account/domain verification (e.g., Payeer, Stripe, PayPal TXT tokens)  
-- **Other text-based ownership checks** that require a public URL returning exact content
+**Google Search Console**  
+Site verification files (e.g., `googleXXXXXXXXXXXX.html` or `.txt`).
 
----
+**Payment Provider Verification**  
+Domain or account verification for providers like Payeer, Stripe, PayPal.
 
-## How it works
+- Upload TXT tokens for domain verification
+- Host verification files required by payment APIs
+- Prove domain ownership to enable services
 
-- When you upload a file, its **filename** and **content** are stored in the database.  
-- UddoktaPay serves it from a public route that matches the exact filename you uploaded.  
-- Toggling **Active** immediately shows/hides the file on the public URL—no deployment needed.
+**Other Verification Services**  
+Any service requiring a publicly accessible text file at a specific URL.
+
+- DNS verification alternatives
+- Ownership proof for third-party integrations
+- Service activation files
+
+## How It Works
+
+**Storage:**
+- Filename and content are stored in the database
+- No physical file created on server
+- Served from public route matching the filename
+
+**Public Access:**
+- UddoktaPay serves files from `https://your-domain.tld/{filename}`
+- Route matches exact filename (case-sensitive)
+- Toggling Active immediately shows/hides the file
+
+**No deployment needed:**
+- Changes take effect instantly
+- Enable/disable without server access
+- Update content without redeployment
 
 ::: warning
-Do not upload secrets, API keys, or customer data. These files are designed to be public.
+Do not upload secrets, API keys, or customer data. These files are publicly accessible by design.
 :::
 
----
+## Upload Text File
 
-## Upload a new file
+Click **Upload Text File** to add a new verification file.
 
-1. Click **Upload Text File**.  
-2. **Select File** (TXT, XML & HTML).  
-3. Leave **Active** turned on to publish immediately (you can disable later).  
-4. Click **Create**.  
+**Select File** (required)  
+Choose a TXT, XML, or HTML file from your computer.
 
-After upload, the file appears in the list with actions and its public status.
+- Accepted formats: .txt, .xml, .html
+- File should contain exact verification content
+- Avoid editing after download from verifier
 
-**What gets stored**
+**Active** (toggle)  
+Enable to make file publicly accessible immediately.
 
-- **Filename** (e.g., `payeer_2225076242.txt`)  
-- **Type** (TXT, XML & HTML)  
-- **Content** (exact file contents)  
-- **Active** (visibility toggle)
+- Toggle on (blue) — File accessible at public URL
+- Toggle off (gray) — File not accessible
+- Can be changed after upload
 
----
+**What gets stored:**
+- **Filename** — Exact name including extension (e.g., `payeer_2225076242.txt`)
+- **Type** — File format (TXT, XML, HTML)
+- **Content** — Complete file contents
+- **Active** — Public visibility status
 
-## Manage files
+## Manage Text Files
 
-On the **Text Files** list:
+The text files list displays all uploaded files with management options.
 
-- **Active toggle** — show or hide the file publicly.  
-- **Copy** — copies the public URL to your clipboard.  
-- **Delete** — removes the file and its URL.  
+**Table columns:**
+- **Filename** — File name with extension
+- **Type** — File format badge
+- **Active** — Toggle for public visibility
+- **Actions** — Copy and Delete buttons
 
-You can also search by filename when you have many entries.
+**Available actions:**
 
-::: tip
-If a verification service requires an exact filename, upload the file **with the exact name** they specify. Avoid renaming after submitting the URL to the verifier.
-:::
+**Active Toggle**  
+Show or hide file publicly.
 
----
+- Inline toggle in table
+- Immediate effect (no save required)
+- Alternative to deleting
 
-## URL format
+**Copy**  
+Copy the public URL to clipboard.
 
-- Public URL: `https://your-domain.tld/{filename}`  
-- The route matches the **exact** filename (case-sensitive on some systems).  
-- Example:  `https://selfhosted.test/payeer_2225076242.txt`
+- Click to copy full URL
+- Paste directly into verification forms
+- Ensures accurate URL without typos
 
-If the file is **inactive** or deleted, the URL will no longer serve content.
+**Delete**  
+Remove file permanently.
 
----
+- Deletes from database
+- Public URL becomes unavailable
+- Cannot be undone
 
-## Best practices
+Use the search bar to find specific files by filename.
 
-- Keep filenames short, lowercase, and without spaces (use hyphens/underscores).  
-- Upload **only** the file the verifier gave you—no extra characters or BOM encoding.  
-- If the verifier caches results, wait a few minutes and re-try verification.  
-- Use **Active** toggle to temporarily suspend access without deleting the record.  
-- Remove old verification files you no longer need.
+## URL Format
 
----
+**Public URL structure:**  
+`https://your-domain.tld/{filename}`
+
+**Examples:**
+- `https://yoursite.com/google1234567890abcdef.html`
+- `https://payments.example.com/stripe-verification.txt`
+
+**Important notes:**
+- Route matches **exact** filename (case-sensitive on some systems)
+- File must be **Active** to be accessible
+- Inactive or deleted files return 404 Not Found
+- No additional path segments (file is at root level)
+
+## Best Practices
+
+**Filename conventions:**
+- Use exact filename provided by verifier
+- Keep lowercase when possible
+- Avoid spaces (use hyphens or underscores)
+- Include proper file extension
+
+**Content handling:**
+- Upload original file without modifications
+- Avoid adding extra whitespace or characters
+- Don't include BOM (Byte Order Mark) encoding
+- Preserve exact content from verification provider
+
+**Management:**
+- Enable files only when needed
+- Remove old verification files after successful verification
+- Use Active toggle for temporary suspension
+- Keep multiple verifications active simultaneously if needed
+
+**Security:**
+- Never upload sensitive data
+- Don't include API keys or passwords
+- Only upload files meant to be public
+- Review content before making Active
+
+**Verification process:**
+- Upload file with exact name
+- Enable Active status
+- Copy public URL using Copy button
+- Submit URL to verification service
+- Wait for service to check (may take time)
+- Keep file Active until verification complete
 
 ## Troubleshooting
 
-- **404 Not Found**  
-  - Check that the file is **Active**.  
-  - Confirm the filename and extension are exactly correct.  
-  - Make sure you’re using the correct domain/brand instance.
+**404 Not Found**
 
-- **Verifier says content mismatch**  
-  - Re-download the file from the provider and re-upload to ensure exact bytes.  
-  - Ensure the file doesn’t include extra whitespace or encoding marks (like BOM).
+Check these common issues:
+- File Active status is toggled off
+- Filename doesn't match exactly (check case)
+- Wrong domain or brand instance
+- File was deleted
 
-- **Verification still failing**  
-  - Copy the URL using the **Copy** action to avoid typos.  
-  - Some services take time to re-check; wait and try again.  
-  - If you changed the filename after submitting to the provider, resubmit the **new** URL.
+**Content Mismatch**
+
+Verification service reports incorrect content:
+- Re-download file from provider
+- Upload fresh copy without editing
+- Check for extra whitespace
+- Verify no BOM or encoding issues
+- Ensure complete content copied
+
+**Verification Failing**
+
+Service won't verify despite correct file:
+- Use Copy button to get exact URL
+- Wait for service cache to refresh (may take minutes/hours)
+- Confirm filename matches what you submitted
+- Check file is Active
+- Try verification again after waiting
+
+**Case Sensitivity Issues**
+
+Some systems are case-sensitive:
+- Match exact case provided by verifier
+- Avoid renaming after upload
+- Test URL in browser to confirm access
 
 ::: tip
-You can keep multiple verification files active at once—for example, one for Google and another for a payment provider.
+**Multiple verifications:** You can keep several verification files active simultaneously. For example, maintain both Google Search Console and payment provider verification files at the same time.
+:::
+
+::: tip
+**Caching:** Some verification services cache results. If verification fails initially, wait 5-10 minutes and retry before troubleshooting further.
 :::

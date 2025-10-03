@@ -253,11 +253,6 @@ Description: *"AI-powered protection for busy merchants. Automatically approves 
 - Start with just Balance Verification if you're new to the system
 :::
 
-**Save options:**
-- **Create** — Save and return to balance verifications list
-- **Create & create another** — Save and open a new form
-- **Cancel** — Return without saving
-
 ### Manage Balance Verifications
 
 The Balance Verifications page displays all configured verification settings.
