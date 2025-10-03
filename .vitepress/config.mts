@@ -84,10 +84,12 @@ export default defineConfig({
                 ]
             },
             {
-                text: 'Gateway Guides',
+                text: 'Developer Guides',
                 collapsed: true,
                 items: [
-                    { text: 'PayPal', link: '/gateways/paypal' },
+                    { text: 'Gateway', link: '/developers/gateway' },
+                    { text: 'Notification Channel', link: '/developers/notification-channel' },
+                    { text: 'Theme', link: '/developers/theme' },
                 ]
             },
         ],

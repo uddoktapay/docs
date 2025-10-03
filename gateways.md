@@ -337,7 +337,7 @@ Need a payment gateway not currently supported? UddoktaPay allows developers to 
 **For Developers:**  
 Build custom gateway drivers for any payment provider with an API. Custom gateways integrate seamlessly with the existing payment flow and appear alongside built-in gateways.
 
-See the [Developer Guide](/developers/custom-gateways) for implementation details, including:
+See the [Developer Guide](/developers/gateway) for implementation details, including:
 - Creating custom gateway drivers
 - Implementing checkout methods
 - Handling payment verification

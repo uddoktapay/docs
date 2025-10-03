@@ -31,7 +31,7 @@ Need a completely custom theme or want to modify theme structure beyond color an
 **For Developers:**  
 Create custom themes with full control over layout, components, and functionality. Custom themes integrate seamlessly and appear in the themes list alongside built-in options.
 
-See the [Developer Guide](/developers/custom-themes) for implementation details, including:
+See the [Developer Guide](/developers/theme) for implementation details, including:
 - Creating custom theme packages
 - Defining theme configuration options
 - Building theme layouts and components
