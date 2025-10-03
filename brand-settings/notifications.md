@@ -328,7 +328,7 @@ Need a custom notification provider for your specific use case?
 **For Developers:**  
 Create custom notification channels for SMS gateways, internal tools, or any service with an API.
 
-See the [Developer Guide](/developers/notification-channel) for implementation details, including:
+See the [Developer Guide](/developers/notification-channels) for implementation details, including:
 - Creating custom notification drivers
 - Registering providers
 - Handling notification events

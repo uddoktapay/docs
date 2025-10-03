@@ -87,11 +87,11 @@ export default defineConfig({
                 text: 'Developer Guides',
                 collapsed: true,
                 items: [
-                    { text: 'Gateway', link: '/developers/gateway' },
-                    { text: 'Notification Channel', link: '/developers/notification-channel' },
-                    { text: 'Theme', link: '/developers/theme' },
+                    { text: 'Custom Gateways', link: '/developers/custom-gateways' },
+                    { text: 'Notification Channels', link: '/developers/notification-channels' },
+                    { text: 'Custom Themes', link: '/developers/custom-themes' },
                 ]
-            },
+            }
         ],
 
         socialLinks: [
