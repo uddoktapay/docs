@@ -23,7 +23,7 @@ Continue reading for self-hosted installation instructions.
 **Check System Requirements**  
 Ensure your server meets all technical prerequisites.
 
-[View System Requirements →](/system-requirements)
+[View System Requirements →](/system-requirements.md)
 
 **What you'll need:**
 - PHP 8.2+ with IonCube Loader
@@ -36,13 +36,14 @@ Ensure your server meets all technical prerequisites.
 
 Detailed installation guides are available for various hosting platforms:
 
-- **cPanel** - Most common shared hosting
-- **Hostinger** - Popular affordable hosting  
-- **aaPanel** - Free cPanel alternative
-- **CloudPanel** - Modern cloud-focused panel
-- **CyberPanel** - OpenLiteSpeed-based panel
-- **VPS (Ubuntu)** - Automated one-command installation
-- **Docker** - Containerized deployment
+- [**VPS (Ubuntu)**](/installation/vps.md) - Automated one-command installation
+- [**Docker**](/installation/docker.md) - Containerized deployment
+- [**cPanel**](/installation/cpanel.md) - Most common shared hosting
+- [**Hostinger**](/installation/hostinger.md) - Popular affordable hosting  
+- [**Webuzo**](/installation/webuzo.md) - cPanel alternative 
+- [**aaPanel**](/installation/aapanel.md) - Free cPanel alternative
+- [**CloudPanel**](/installation/cloudpanel.md) - Modern cloud-focused panel
+- [**CyberPanel**](/installation/cyberpanel.md) - OpenLiteSpeed-based panel
 
 **General installation steps:**
 
@@ -64,13 +65,13 @@ After installation completes, configure these essential settings:
 3. Enter your license key from my.uddoktapay.com
 4. Click **Submit**
 
-[License Documentation →](/administration/license)
+[License Documentation →](/administration/license.md)
 
 ### 2. Configure Cron Job
 
 Background tasks require a cron job running every minute.
 
-[Cron Job Setup →](/system-settings/cron-job)
+[Cron Job Setup →](/system-settings/cron-job.md)
 
 Without a cron job, notifications won't send and scheduled tasks won't run.
 
@@ -83,7 +84,7 @@ Configure your brand identity:
 - **Mail Settings** — SMTP or email provider configuration
 - **API Settings** — Generate API keys for integrations
 
-[Brand Settings Overview →](/brand-settings/overview)
+[Brand Settings Overview →](/brand-settings/overview.md)
 
 ### 4. Payment Gateways
 
@@ -95,7 +96,7 @@ API-based integrations (bKash, Nagad, Rocket, PayPal, Stripe, etc.)
 **Bank Gateways:**  
 Manual bank transfers with proof of payment upload
 
-[Gateway Setup Guide →](/gateways)
+[Gateway Setup Guide →](/gateways.md)
 
 ### 5. Notification Channels
 
@@ -107,7 +108,7 @@ Configure alerts for payment events:
 - **Slack/Discord** — Team channel notifications
 - **Webhook** — Custom integrations (n8n, Make, Zapier)
 
-[Notification Setup →](/brand-settings/notifications)
+[Notification Setup →](/brand-settings/notifications.md)
 
 ## Test Your Setup
 
@@ -134,14 +135,14 @@ Test the complete payment flow to ensure everything works correctly.
 
 Run multiple storefronts from one installation:
 
-[Brands Configuration →](/administration/brands)
+[Brands Configuration →](/administration/brands.md)
 
 ### Team Management
 
 Add staff members with specific permissions:
 
-[Staff Management →](/system-settings/staff-management)  
-[Access Roles →](/system-settings/access-roles)
+[Staff Management →](/system-settings/staff-management.md)  
+[Access Roles →](/system-settings/access-roles.md)
 
 *Requires Role Management addon*
 
@@ -149,13 +150,13 @@ Add staff members with specific permissions:
 
 Modify checkout page design:
 
-[Themes →](/brand-settings/themes)
+[Themes →](/brand-settings/themes.md)
 
 ### SMS Data Integration
 
 Automatic payment verification via SMS:
 
-[SMS Data Setup →](/sms-data)
+[SMS Data Setup →](/sms-data.md)
 
 *Optional but recommended for automatic verification*
 
@@ -164,7 +165,7 @@ Automatic payment verification via SMS:
 **Search Documentation**  
 
 **Support Resources:**
-- [System Requirements](/system-requirements) - Technical specifications
+- [System Requirements](/system-requirements.md) - Technical specifications
 - [my.uddoktapay.com](https://my.uddoktapay.com) - Account and license management
 
 **Need Assistance?**  

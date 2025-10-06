@@ -69,4 +69,4 @@ These extensions are required only during the installation process:
 
 ---
 
-Make sure all the required PHP extensions are installed and enabled on your server before running the [installation guide](/guide/installation).
+Make sure all the required PHP extensions are installed and enabled on your server before running the installation guide.
