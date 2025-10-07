@@ -8,7 +8,6 @@ title: Logo & Favicon
 - [Primary Logo](#primary-logo)
 - [Round Logo](#round-logo)
 - [Favicon](#favicon)
-- [Best Practices](#best-practices)
 
 ## Introduction
 
@@ -66,34 +65,4 @@ Browser tab icon appearing next to page title.
 
 ::: tip
 ICO format provides best cross-browser compatibility. PNG works well for modern browsers. Keep the design simple and recognizable at small sizes.
-:::
-
-## Best Practices
-
-**Primary Logo:**
-- Use transparent background (PNG format)
-- Ensure legibility at small sizes
-- Test visibility on light and dark backgrounds
-- Keep aspect ratio close to 250×70 for best display
-
-**Round Logo:**
-- Use square dimensions (512×512)
-- Center important elements (outer edges will be cropped)
-- Avoid text near edges
-- Test how it looks in circular crop
-
-**Favicon:**
-- Keep design simple and recognizable
-- Use high contrast colors
-- Test at 16×16 size (how it appears in tabs)
-- Avoid too much detail
-
-**General tips:**
-- Use consistent branding across all three images
-- Compress images to reduce file size
-- Test uploaded logos on actual pages
-- Update all three logos together for brand consistency
-
-::: warning
-After uploading new logos, you may need to clear your browser cache to see changes immediately.
 :::

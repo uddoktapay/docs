@@ -7,8 +7,6 @@ title: FAQ
 - [Introduction](#introduction)
 - [Create FAQ](#create-faq)
 - [Edit FAQ](#edit-faq)
-- [Reorder FAQs](#reorder-faqs)
-- [Best Practices](#best-practices)
 - [Troubleshooting](#troubleshooting)
 
 ## Introduction
@@ -67,70 +65,6 @@ Click **Edit** from the actions menu to modify an existing FAQ.
 - **Status** — Enable/disable visibility
 
 Changes take effect immediately on the checkout page after saving.
-
-## Reorder FAQs
-
-Control the order FAQs appear to customers on the checkout page.
-
-**To reorder:**
-1. Click the reorder icon (drag handle) on an FAQ
-2. Drag the FAQ up or down in the list
-3. Drop in the desired position
-4. Order saves automatically
-
-The order in your list is the exact order customers see on checkout.
-
-::: tip
-Place the most common and important questions at the top:
-1. Payment methods accepted
-2. Verification time
-3. Refund policy
-4. Security information
-5. Contact support
-
-Less common questions should appear lower in the list.
-:::
-
-## Best Practices
-
-**Writing questions:**
-- Use customer language (how they would ask)
-- Be specific and clear
-- Avoid technical jargon
-- One topic per question
-
-**Writing answers:**
-- Keep responses concise (2-4 sentences)
-- Answer the question directly
-- Include specific timeframes or numbers
-- Avoid vague terms like "soon" or "quickly"
-
-**Content guidelines:**
-- Include only payment-related information
-- Don't publish sensitive details (account numbers, passwords)
-- Link to your website for detailed policies
-- Keep tone professional but friendly
-
-**Organization:**
-- Most asked questions at the top
-- 5-8 FAQs is ideal (too many overwhelms)
-- Group related questions together
-- Remove outdated or duplicate questions
-
-**Maintenance:**
-- Review quarterly for accuracy
-- Update timeframes and policies
-- Remove questions customers no longer ask
-- Add new questions based on support inquiries
-
-**Common FAQ topics:**
-- Accepted payment methods
-- Verification timeframes
-- Refund policies
-- Security measures
-- Transaction fees
-- Payment proof requirements
-- Customer support contact
 
 ## Troubleshooting
 

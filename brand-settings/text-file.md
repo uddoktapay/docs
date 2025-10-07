@@ -10,7 +10,6 @@ title: Text File
 - [Upload Text File](#upload-text-file)
 - [Manage Text Files](#manage-text-files)
 - [URL Format](#url-format)
-- [Best Practices](#best-practices)
 - [Troubleshooting](#troubleshooting)
 
 ## Introduction
@@ -148,40 +147,6 @@ Use the search bar to find specific files by filename.
 - File must be **Active** to be accessible
 - Inactive or deleted files return 404 Not Found
 - No additional path segments (file is at root level)
-
-## Best Practices
-
-**Filename conventions:**
-- Use exact filename provided by verifier
-- Keep lowercase when possible
-- Avoid spaces (use hyphens or underscores)
-- Include proper file extension
-
-**Content handling:**
-- Upload original file without modifications
-- Avoid adding extra whitespace or characters
-- Don't include BOM (Byte Order Mark) encoding
-- Preserve exact content from verification provider
-
-**Management:**
-- Enable files only when needed
-- Remove old verification files after successful verification
-- Use Active toggle for temporary suspension
-- Keep multiple verifications active simultaneously if needed
-
-**Security:**
-- Never upload sensitive data
-- Don't include API keys or passwords
-- Only upload files meant to be public
-- Review content before making Active
-
-**Verification process:**
-- Upload file with exact name
-- Enable Active status
-- Copy public URL using Copy button
-- Submit URL to verification service
-- Wait for service to check (may take time)
-- Keep file Active until verification complete
 
 ## Troubleshooting
 

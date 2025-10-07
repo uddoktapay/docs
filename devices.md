@@ -7,9 +7,7 @@ title: Devices
 - [Introduction](#introduction)
 - [Why devices matter](#why-devices-matter)
 - [How devices affect non-API gateways](#how-devices-affect-non-api-gateways)
-- [Devices List View](#devices-list-view)
-  - [Table columns](#table-columns)
-  - [Available actions](#available-actions)
+- [Available actions](#available-actions)
 - [Connect Android App](#connect-android-app)
   - [Download Android App](#download-android-app)
   - [Connect Your Device](#connect-your-device)
@@ -18,7 +16,7 @@ title: Devices
   - [How it works](#how-it-works)
   - [Create Balance Verification](#create-balance-verification)
   - [Verification settings](#verification-settings)
-  - [Manage Balance Verifications](#manage-balance-verifications)
+  - [Updating balances](#updating-balances)
 - [Device Best Practices](#device-best-practices)
 
 ## Introduction
@@ -36,15 +34,6 @@ Connected devices are essential for automatic payment verification:
 - **Enable balance and smart verification** — Detect fraudulent SMS automatically
 - **Allow multiple wallets** — Run different MFS accounts across multiple devices
 - **Reduce manual workload** — Eliminate the need to manually check every transaction
-
-Each connected device displays:
-
-- **Device ID** — Unique identifier (e.g., TestID)
-- **Device name** — Friendly name (e.g., Samsung)
-- **Device model** — Phone model (e.g., A54)
-- **Android Version** — OS version (e.g., 15)
-- **App Version** — Paymently app version (e.g., 1.0.3)
-- **Status** — Connection status (CONNECTED badge)
 
 ## How devices affect non-API gateways
 
@@ -76,25 +65,13 @@ The verification process depends on your gateway's Pending Payment setting:
 Always connect at least one device for smooth, automatic payment verification. Enable Pending Payment as a fallback for when devices go offline temporarily.
 :::
 
-## Devices List View
 
-The devices list displays all connected Android devices with their current status and details.
-
-### Table columns
-
-- **Device ID** — Unique identifier for the device
-- **Device name** — Friendly name assigned to the device
-- **Device model** — Phone model number
-- **Android Version** — Operating system version
-- **App Version** — Paymently app version installed
-- **Status** — Connection status (CONNECTED badge in blue)
-
-### Available actions
+## Available actions
 
 For each connected device:
 
-- **Balance Verification** (blue shield icon with checkmark) — Manage balance verification settings for this device
-- **Delete** (red trash icon) — Remove the device from your account
+- **Balance Verification** — Manage balance verification settings for this device
+- **Delete** — Remove the device from your account
 
 ::: warning
 Deleting a device will stop automatic SMS forwarding. All payments requiring verification through that device will fail until you reconnect it or enable Pending Payment.
@@ -103,13 +80,13 @@ Deleting a device will stop automatic SMS forwarding. All payments requiring ver
 
 ## Connect Android App
 
-Click **Connect Android App** (button with WiFi icon, top right) to link a new Android device.
+Click **Connect Android App** to link a new Android device.
 
 A modal appears with two sections: **Download Android App** and **Connect Android App**.
 
 ### Step 1: Download the App
 
-Click **Download Android App** (blue button) to download the Paymently app to your Android phone.
+Click **Download Android App** to download the Paymently app to your Android phone.
 
 **What the app does:**
 - Reads SMS from your bKash/Nagad/Rocket SIM card
@@ -209,14 +186,6 @@ If the balance doesn't match, the SMS Data is marked with a "Balance verify mism
 
 Click **Balance Verification** from the device actions, or click **New balance verification** on the Balance Verification page.
 
-**Device & Account Information section:**
-
-| Field | Description | Required |
-|-------|-------------|----------|
-| **Payment Method** | MFS provider (dropdown: bKash, Rocket, Nagad, etc.) | Yes |
-| **Payment Type** | Account type (dropdown: Personal, Merchant, Agent) | Yes |
-| **Current Balance** | Your actual MFS wallet balance (with currency prefix BDT) | Yes |
-
 **Payment Method & Type combination:**
 Only unique device-method-type combinations are allowed. You cannot create duplicate balance verification entries for the same device, payment method, and payment type.
 
@@ -235,8 +204,6 @@ Two verification options are available:
 - Compares SMS balance with calculated balance (previous balance + transaction amount)
 - Flags mismatches for manual review
 
-Description: *"Verify incoming SMS against your account balance. Automatically detects fake SMS by comparing the balance shown in SMS with expected calculations."*
-
 **Enable Smart Verification** (toggle)
 - AI-powered protection for busy merchants
 - Automatically approves legitimate transactions even when SMS is delayed or missing
@@ -244,35 +211,11 @@ Description: *"Verify incoming SMS against your account balance. Automatically d
 - Keeps your business running while blocking fake SMS
 - Reduces manual intervention during peak times
 
-Description: *"AI-powered protection for busy merchants. Automatically approves legitimate transactions even when SMS is delayed or missing (3-5 transactions). Keeps your business running while blocking fake SMS."*
-
 ::: tip
 **Recommended setup:**
 - Enable **Balance Verification** for all devices to detect fraudulent SMS
 - Enable **Smart Verification** if you process many transactions to handle temporary SMS delays
 - Start with just Balance Verification if you're new to the system
-:::
-
-### Manage Balance Verifications
-
-The Balance Verifications page displays all configured verification settings.
-
-**Table columns:**
-- **Payment Method** — MFS provider badge (e.g., BKASH in blue)
-- **Payment Type** — Account type badge (e.g., PERSONAL in blue)
-- **Current Balance** — Account balance (e.g., 100.00)
-- **Balance Verification** — Toggle to enable/disable balance verification
-- **Smart Verification** — Toggle to enable/disable smart verification
-
-**Available actions:**
-- **Edit** — Modify verification settings
-- **Delete** — Remove balance verification configuration
-
-**Inline toggles:**
-You can enable/disable Balance Verification and Smart Verification directly from the list without opening the edit form.
-
-::: tip
-Toggle Balance Verification off temporarily during cash-outs to avoid false mismatch warnings, then update the Current Balance and toggle it back on.
 :::
 
 ### Updating balances

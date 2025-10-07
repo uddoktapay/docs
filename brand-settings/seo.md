@@ -10,7 +10,6 @@ title: SEO Settings
 - [Social Media Sharing](#social-media-sharing)
   - [Facebook/LinkedIn Image](#facebooklinkedin-image)
   - [Twitter/X Card Image](#twitterx-card-image)
-- [Best Practices](#best-practices)
 
 ## Introduction
 
@@ -119,56 +118,4 @@ Preview image appearing when links shared on Twitter/X.
 
 ::: tip
 Upload high-quality images for professional appearance across all platforms. Blurry or pixelated images negatively impact brand perception.
-:::
-
-## Best Practices
-
-**Meta Description:**
-- Front-load important keywords
-- Include clear call-to-action when appropriate
-- Make every character count (stay under 160)
-- Avoid duplicate descriptions if managing multiple brands
-- Update seasonally or with major changes
-
-**SEO Keywords:**
-- Research what customers actually search
-- Include variations (singular/plural, synonyms)
-- Add location terms if serving specific regions
-- Avoid keyword stuffing or irrelevant terms
-- Review and update quarterly
-
-**Social Images:**
-- Maintain consistent branding across both images
-- Use high-resolution source files
-- Include your logo for brand recognition
-- Test links on actual platforms before launch
-- Update images when rebranding
-
-**Testing:**
-- Use Google's Rich Results Test for meta tags
-- Test Facebook shares with Facebook Sharing Debugger
-- Validate Twitter cards with Twitter Card Validator
-- Share test links privately before public announcements
-- Clear platform caches when updating images
-
-**Optimization:**
-- Compress images without losing quality
-- Use descriptive alt text when platforms support it
-- Ensure images work in both light and dark modes
-- Consider accessibility (readable text, good contrast)
-
-**Monitoring:**
-- Track click-through rates from search results
-- Monitor social engagement on shared links
-- A/B test different descriptions and images
-- Update based on performance data
-
-::: warning
-After uploading or changing social media images, platforms may cache the old version for hours or days. Use platform-specific tools to refresh cached images:
-- Facebook: [Sharing Debugger](https://developers.facebook.com/tools/debug/)
-- Twitter: [Card Validator](https://cards-dev.twitter.com/validator)
-:::
-
-::: tip
-**Image dimensions matter:** Using recommended sizes ensures images display correctly without cropping or distortion. Smaller images may appear blurry, larger images will be resized and slow page load.
 :::

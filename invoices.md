@@ -5,7 +5,6 @@ title: Invoices
 # Invoices
 
 - [Introduction](#introduction)
-- [Invoice statuses](#invoice-statuses)
 - [Create Invoice](#create-invoice)
   - [Invoice fields](#invoice-fields)
   - [Adding items](#adding-items)
@@ -24,20 +23,6 @@ title: Invoices
 Invoices let you bill customers and track payments against those bills. An invoice contains one or more items, optional discounts and taxes, and a status that reflects whether it is paid, unpaid, refunded, or canceled.
 
 Invoices link to **customers**, **payments**, and **gateways**. You can create invoices manually, send reminders, and record payments. Each invoice generates a unique payment URL that customers can use to complete payment through your configured gateways.
-
-## Invoice statuses
-
-Invoices can exist in the following statuses:
-
-- **Paid** – Full payment has been received and recorded.  
-- **Unpaid** – The invoice has been created but no payment has been received.  
-- **Pending** – Payment is being processed or awaiting verification.  
-- **Canceled** – The invoice was canceled and is no longer payable.  
-- **Refunded** – The invoice payment was fully returned to the customer.  
-
-::: tip
-Invoice status updates automatically when payments are recorded. You can also manually change status when needed.
-:::
 
 ## Create Invoice
 
@@ -112,7 +97,7 @@ Record a payment against the invoice manually when payment is received outside t
 
 **Steps:**
 
-1. SSelect the invoice from the list.
+1. Select the invoice from the list.
 2. Click **Mark as Paid**.
 3. Select the **Gateway** through which payment was received.
 4. Enter the **Transaction ID** from the gateway.

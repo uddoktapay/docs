@@ -19,7 +19,6 @@ title: Notification Channels
   - [Webhook](#webhook)
 - [Available Events](#available-events)
 - [Custom Providers](#custom-providers)
-- [Best Practices](#best-practices)
 
 ## Introduction
 
@@ -281,43 +280,6 @@ Triggered when submitted transaction ID couldn't be matched.
 
 ::: tip
 Additional events may be added in future updates. Check back after system updates to see new notification options.
-:::
-
-## Best Practices
-
-**Channel organization:**
-- Use separate channels for different teams (Finance, Operations, Support)
-- Name channels clearly with team or purpose
-- Keep critical channels active, disable testing channels
-
-**Event selection:**
-- Payment Completed → Finance team (for accounting)
-- Payment Pending → Operations team (for manual review)
-- Transaction Not Found → Support team (for customer assistance)
-
-**Provider selection:**
-- Database → For admin dashboard visibility
-- Mail → For detailed, actionable alerts
-- Telegram/Slack/Discord → For quick team notifications
-- Webhook → For automation and custom workflows
-
-**Configuration:**
-- Test each channel after creation
-- Keep API tokens and webhooks secure
-- Update Mail Settings before enabling email channels
-- Use specific admin selection instead of "All Admins" for pending reviews
-
-**Monitoring:**
-- Trigger test payments to verify channels work
-- Check notification delivery regularly
-- Monitor queue processing with cron job
-- Review and update recipient lists quarterly
-
-::: warning
-**Requirements:**
-- **Cron Job** must be configured and running
-- Notifications process via background queues
-- See [Cron Job](/system-settings/cron-job) for setup instructions
 :::
 
 ## Custom Providers

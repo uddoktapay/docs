@@ -9,7 +9,6 @@ title: Brands
 - [How Brand Resolution Works](#how-brand-resolution-works)
 - [Brands & Domains](#brands-domains)
 - [Panel Domains](#panel-domains)
-- [Brand List](#brand-list)
 - [Create Brand](#create-brand)
 - [Edit Brand](#edit-brand)
 - [Attach Domains](#attach-domains)
@@ -102,28 +101,6 @@ All brand and panel domains must point to the **same document root** as your pan
 - Must point to the **same document root** as panel
 - Requires SSL certificate for each domain
 - Available based on your license plan
-
-## Brand List
-
-The brands list displays all configured brands with creation dates.
-
-**Table columns:**
-- **Name** — Brand name for identification
-- **Created at** — When the brand was created (sortable)
-
-**Available actions:**
-
-**Edit**  
-Modify brand name, slug, and attached domains.
-
-**Delete**  
-Remove brand permanently (only if not default brand).
-
-Use the search bar to find specific brands by name.
-
-::: warning
-You cannot delete a brand that is set as the default brand. Change the default brand first, then delete.
-:::
 
 ## Create Brand
 

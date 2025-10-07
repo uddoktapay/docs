@@ -10,7 +10,6 @@ title: API Settings
   - [After creation](#after-creation)
 - [Edit API Key](#edit-api-key)
 - [API Endpoints](#api-endpoints)
-- [API Best Practices](#api-best-practices)
 
 ## Introduction
 
@@ -160,57 +159,4 @@ Each endpoint includes:
 
 ::: tip
 Click the copy icon next to each endpoint to copy the URL to your clipboard. These endpoints are used with your API key for authentication.
-:::
-
-## API Best Practices
-
-**Creating API Keys:**
-
-- **Save immediately** — Copy the key the moment it appears, you cannot retrieve it later
-- **Use descriptive names** — "Production Website" is clearer than "Key 1"
-- **Minimum permissions** — Only grant abilities the integration needs
-- **Separate keys per integration** — Different key for website, mobile app, etc.
-- **Set expiration for testing** — Temporary keys auto-expire
-
-**Security:**
-
-- **Store keys securely** — Use password managers or environment variables
-- **Never commit to version control** — Add API keys to .gitignore
-- **Never share publicly** — Don't include in client-side code or forums
-- **Rotate regularly** — Create new keys periodically and revoke old ones
-- **Revoke unused keys** — Delete or deactivate old integrations
-
-**For non-developers:**
-
-- **Start with all abilities** — Grant `payment:checkout`, `payment:verify`, and `payment:refund`
-- **Copy and save immediately** — The key shows only once after creation
-- **Store in safe location** — Password manager or secure notes app
-- **Contact developer** — Get help implementing API integration
-- **Don't panic if lost** — Just create a new key and delete the old one
-
-**Managing Keys:**
-
-- **Edit abilities as needed** — Add or remove permissions without creating new keys
-- **Use active toggle** — Temporarily disable instead of deleting
-- **Track expiration dates** — Renew keys before they expire
-- **Test after editing** — Verify integration still works after permission changes
-
-**Monitoring:**
-
-- **Check API Documentation** — Review integration guides regularly
-- **Test endpoints** — Verify endpoints work before going live
-- **Monitor active status** — Ensure critical keys remain active
-- **Keep keys organized** — Use clear names to track usage
-
-::: tip
-If you're integrating UddoktaPay with your website or application, click [API Documentation](https://developer.uddoktapay.com) for complete integration guides, code examples, and best practices.
-:::
-
-::: danger
-**Critical Reminders:**
-1. API keys are shown **only once** after creation
-2. Copy and save the key immediately
-3. You cannot retrieve it later
-4. If lost, you must create a new key
-5. Never share keys publicly or commit to version control
 :::

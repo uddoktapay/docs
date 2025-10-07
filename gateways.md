@@ -21,7 +21,6 @@ title: Gateways
   - [Bank Information](#bank-information)
   - [User Input Fields](#user-input-fields)
 - [Edit Gateway](#edit-gateway)
-  - [Available actions](#available-actions)
 - [User Input Fields](#user-input-fields-1)
   - [Available field types](#available-field-types)
   - [Field configuration](#field-configuration)
@@ -47,11 +46,7 @@ For developers: Follow the Gateway Developer docs to build custom gateway integr
 
 ## Gateway List View
 
-The gateway list displays all configured payment methods organized by type. Each gateway shows:
-
-- **Display name** — Name shown to customers at checkout
-- **Currency** — Supported currency (USD, BDT, etc.)
-- **Status** — Inline toggle to enable/disable the gateway
+The gateway list displays all configured payment methods organized by type.
 
 ### Automatic Gateways
 
@@ -69,7 +64,7 @@ Access manual bank transfer gateways by clicking **Bank Gateways** in the sideba
 - **Status Toggle** — Enable/disable the gateway without deleting
 
 ::: tip
-Use the **Search** bar at the top right to quickly find specific gateways. The reorder icon (↕) lets you drag and drop gateways to change their display order at checkout.
+Use the **Search** bar at the top right to quickly find specific gateways.
 :::
 
 
@@ -94,20 +89,6 @@ The order saves immediately and affects all checkout pages, payment links, and i
 - **Middle positions** — Alternative payment options
 - **Bottom positions** — Rarely used or backup methods
 
-**Examples:**
-
-**High-volume business:**
-1. bKash Personal (most customers use)
-2. Nagad Personal
-3. Bank Transfer
-4. PayPal (international)
-
-**International focus:**
-1. PayPal
-2. Stripe
-3. Local bank transfer
-4. bKash (for local customers)
-
 ::: tip
 Place your highest-conversion payment methods at the top. Customers are more likely to choose options they see first. Review and adjust order based on actual usage patterns.
 :::
@@ -125,7 +106,7 @@ To add a new automatic gateway, click **New gateway** from the Automatic Gateway
 A modal will appear with a searchable dropdown showing available providers grouped by currency.
 
 ::: tip
-Use the search box in the gateway selector to quickly find your desired provider. Gateways are automatically filtered based on your business requirements.
+Use the search box in the gateway selector to quickly find your desired provider.
 :::
 
 ### Gateway Information
@@ -144,12 +125,6 @@ Once you select a provider, you'll see the Edit Gateway form with two main secti
 | **Percentage Charge** | Percentage fee charged per transaction | Yes |
 | **QR Code** | Upload a QR code image for this gateway (optional) | No |
 
-**Additional fields (varies by gateway type):**
-
-For non-API gateways (Personal, Agent, Merchant):
-- **Number** — The mobile number or account identifier for receiving payments
-- **Pending Payment** — Dropdown to enable/disable pending payment feature
-
 ::: warning
 If the checkout amount is outside the defined **Minimum** or **Maximum**, the gateway will not appear as an option for customers.
 :::
@@ -158,20 +133,15 @@ If the checkout amount is outside the defined **Minimum** or **Maximum**, the ga
 
 Gateway-specific configuration parameters vary by provider.
 
-**For API gateways (like Payeer):**
-- **Success url** — Redirect URL after successful payment
-- **Fail url** — Redirect URL after failed payment
-- **Status url** — Webhook/IPN URL for payment status updates
-- **Merchant id** — Your merchant identifier from the provider
+**For API gateways (like Stripe):**
 - **Secret key** — API secret key for authentication
-- **Additional encryption key** — Extra security key (if required by provider)
 
 **For non-API gateways (Personal/Agent/Merchant):**
 - **Number** — The account number that receives payments
-- **Pending Payment** — Enable or Disable pending payment handling
+- **Pending Payment** — Enable or Disable pending payment handling. See [Pending Payment](#pending-payment) below for more details.
 
 ::: tip
-Always keep your API credentials secure. Never share Secret keys or Merchant IDs publicly.
+Always keep your API credentials secure. Never share Secret keys publicly.
 :::
 
 ## Create Bank Gateway
@@ -238,19 +208,6 @@ Use **Replicate** on existing bank gateways to quickly create similar configurat
 
 Click the **Edit** action on any gateway to modify its configuration. The edit form contains the same sections as the create form.
 
-### Available actions
-
-From the gateway list:
-
-- **Edit** — Open the gateway configuration form
-- **Replicate** (Bank Gateways only) — Duplicate the gateway with all settings
-- **Delete** — Remove the gateway permanently
-- **Status Toggle** — Enable/disable without opening the edit form
-
-::: warning
-Deleting a gateway does not affect completed payments made through it. However, the gateway will no longer be available for new transactions.
-:::
-
 ## User Input Fields
 
 User input fields allow you to collect extra information from customers during checkout. They are especially useful for **Bank Gateways** where proof of payment is required.
@@ -277,12 +234,6 @@ For each field you add, configure:
 - **Form Type** — Select from available input types (required, red asterisk)
 - **Field Name** — Label displayed to customers (required, red asterisk)
 - **Is Required** — Toggle to make the field mandatory
-
-**Managing fields:**
-
-- **Reorder** — Use the drag handles (↕ ↑ ↓) to arrange field order
-- **Delete** — Click the red trash icon to remove a field
-- **Add** — Click **Add new field** at the bottom to add more fields
 
 ::: tip
 Keep required fields limited to what you need to verify a payment. Extra required fields can reduce completion rates.

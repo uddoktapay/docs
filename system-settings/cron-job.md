@@ -93,7 +93,7 @@ Test cron execution without waiting for the scheduled run.
 
 **To run manually:**
 
-1. Click **Run Cron Manually** (blue button, top right)
+1. Click **Run Cron Manually**
 2. System executes all pending scheduled tasks
 3. "Last Cron Run" updates to current time
 4. Check results or errors in output

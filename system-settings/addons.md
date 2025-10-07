@@ -17,37 +17,11 @@ Access Addons from **Administration → System Settings → Addons**.
 
 ## Available Addons
 
-### Liquid
+- Liquid (ResellerCamp)
 
-**Description:**  
-The advanced in-house software for DNS & domain names management.
+- Orderbox (ResellerCamp)
 
-**Features:**
-- Powerful
-- Domain
-- Management
-- DNS
-
-### LogicBoxes (Orderbox)
-
-**Description:**  
-The Best-in-Class Domains & Web Products Automation Platform.
-
-**Features:**
-- Registrars
-- Resellers
-- Web Hosts
-
-### Role Management
-
-**Description:**  
-Create users, assign roles, and manage permissions to control access within the panel.
-
-**Features:**
-- Users
-- Permissions
-- Roles
-
+- Role Management
 
 ## Manage Addon
 
