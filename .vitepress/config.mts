@@ -24,19 +24,21 @@ export default defineConfig({
         },
 
         sidebar: [
-            { text: 'Getting Started', link: '/' },
-            { text: 'System Requirements', link: '/system-requirements' },
             {
-                text: 'Installation Guide',
-                collapsed: false,
-                items: [
-                    { text: 'cPanel', link: '/installation/cpanel' },
-                    { text: 'Hostinger', link: '/installation/hostinger' },
-                    { text: 'CloudPanel', link: '/installation/cloudpanel' },
-                    { text: 'aaPanel', link: '/installation/aapanel' },
-                    { text: 'CyberPanel', link: '/installation/cyberpanel' },
-                    { text: 'VPS (Ubuntu)', link: '/installation/vps' },
-                    { text: 'Docker', link: '/installation/docker' },
+                text: 'Getting Started', items: [
+                    { text: 'Introduction', link: '/' },
+                    { text: 'Installation', link: '/installation/index.md' },
+                    { text: 'System Requirements', link: '/system-requirements' },
+                    {
+                        text: 'Installation Guide',
+                        collapsed: false,
+                        items: [
+                            { text: 'VPS (Ubuntu)', link: '/installation/vps' },
+                            { text: 'Docker', link: '/installation/docker' },
+                            { text: 'cPanel', link: '/installation/cpanel' },
+                            { text: 'Hostinger', link: '/installation/hostinger' },
+                        ]
+                    },
                 ]
             },
             { text: 'Payments', link: '/payments' },

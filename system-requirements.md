@@ -6,8 +6,6 @@ title: System Requirements
 
 Before installing **UddoktaPay**, make sure your server meets the following requirements.
 
----
-
 ## Installer Requirements
 
 These extensions are required only during the installation process:
@@ -17,8 +15,6 @@ These extensions are required only during the installation process:
 - **mbstring** → Required for multibyte string handling during setup.  
 - **ionCube Loader** → Required to run encrypted UddoktaPay source code.
 
----
-
 ## PHP Requirements
 
 - **PHP Version**: 8.2 or higher (8.3+ recommended).  
@@ -26,8 +22,6 @@ These extensions are required only during the installation process:
 - **Database**: MySQL 8+ / MariaDB 10.6+, PostgreSQL or SQL Server.  
 - **Redis**: Recommended for queues & caching.  
 - **Supervisor / systemd**: Required for running background jobs.  
-
----
 
 ## Required PHP Extensions
 
@@ -56,8 +50,6 @@ These extensions are required only during the installation process:
 | sockets     | WebSocket functionality |
 | sodium      | Modern cryptographic operations |
 | gmp         | Arbitrary-precision arithmetic |
-
----
 
 ## Database Extensions
 
