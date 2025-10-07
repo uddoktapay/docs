@@ -121,13 +121,13 @@ Transfer the UddoktaPay installer package to your subdomain directory.
 
 1. Click **Upload** button in the top toolbar
 
-![Upload Button](/assets/installation/cpanel/6-upload-button.png)
+![Upload Button](/assets/installation/cpanel/5-upload-button.png)
 
 2. On the upload page:
    - Drag and drop the `installer_****.zip` file into the upload area
    - Or click **Select File** to browse and select the file
 
-![Upload Interface](/assets/installation/cpanel/7-upload-interface.png)
+![Upload Interface](/assets/installation/cpanel/6-upload-interface.png)
 
 3. Wait for upload to complete (green progress bar shows 100%)
 4. Click **Go Back to** link to return to your subdomain folder
@@ -143,7 +143,7 @@ Unzip the installer package in your subdomain directory.
 2. Click the filename to select it (file row becomes highlighted)
 3. Click **Extract** button in the top toolbar
 
-![Select Installer File](/assets/installation/cpanel/8-select-installer.png)
+![Select Installer File](/assets/installation/cpanel/7-select-installer.png)
 
 ### Extract Files
 
@@ -151,7 +151,7 @@ Unzip the installer package in your subdomain directory.
    - Verify extraction path shows your subdomain folder (e.g., `/pay.example.com`)
    - Click **Extract File(s)** button
 
-![Extract Dialog](/assets/installation/cpanel/10-extract-dialog.png)
+![Extract Dialog](/assets/installation/cpanel/8-extract-dialog.png)
 
 2. Wait for extraction to complete
 3. Click **Close** when finished
@@ -181,7 +181,7 @@ Create a MySQL database using cPanel's Database Wizard for guided setup.
 2. Search for **"Database"** in the search bar
 3. Click **Database Wizard** under Tools section
 
-![Database Search](/assets/installation/cpanel/11-database-search.png)
+![Database Search](/assets/installation/cpanel/9-database-search.png)
 
 ::: info Database Creation Methods
 cPanel offers two methods for creating databases:
@@ -197,7 +197,7 @@ This guide uses Database Wizard for simplicity and reliability.
    - cPanel automatically prefixes with your username (e.g., `username_example`)
    - Use a descriptive name like `uddoktapay` or `payment`
 
-![Database Name](/assets/installation/cpanel/12-database-step1.png)
+![Database Name](/assets/installation/cpanel/10-database-step1.png)
 
 2. Click **Next Step** to continue
 
@@ -217,7 +217,7 @@ Note the complete database name including the prefix (e.g., `username_uddoktapay
    - Include uppercase, lowercase, numbers, and special characters
    - Password strength meter should show "Very Strong (100/100)"
 
-![Database User Creation](/assets/installation/cpanel/13-database-step2.png)
+![Database User Creation](/assets/installation/cpanel/11-database-step2.png)
 
 3. Click **Create User** to proceed
 
@@ -231,7 +231,7 @@ Save these database credentials immediately in a password manager or secure docu
    - This automatically selects all individual permission checkboxes below
    - Required for UddoktaPay to function properly
 
-![All Privileges](/assets/installation/cpanel/14-database-step3.png)
+![All Privileges](/assets/installation/cpanel/12-database-step3.png)
 
 2. Click **Make Changes** button
 3. Click **Next Step** to complete the wizard
@@ -298,13 +298,13 @@ Most frequently missing extensions:
 
 1. Click **Configure Database Connection** button
 
-![Configure Database Button](/assets/installation/cpanel/16-configure-database.png)
+![Configure Database Button](/assets/installation/cpanel/13-configure-database.png)
 
 2. The database configuration form appears
 
 3. Select **MySQL** as the Database Driver
 
-![Database Driver Selection](/assets/installation/cpanel/16-select-mysql.png)
+![Database Driver Selection](/assets/installation/cpanel/14-select-mysql.png)
 
 4. Fill in your database credentials:
 
@@ -317,7 +317,7 @@ Most frequently missing extensions:
 | **Username** | Full username with prefix | Example: `username_dbuser` |
 | **Password** | Your database password | Exact password from Step 4 |
 
-![Database Configuration](/assets/installation/cpanel/17-database-config.png)
+![Database Configuration](/assets/installation/cpanel/15-database-config.png)
 
 5. Click **Test Connection** button to verify credentials
 
@@ -330,7 +330,6 @@ Most frequently missing extensions:
 ::: tip Connection Testing
 If connection fails with `localhost`, try `127.0.0.1` as the host. Some servers require one specific format.
 :::
-
 
 
 ## Step 6: Create Admin Account
@@ -347,7 +346,7 @@ Fill in the admin account creation form with your details:
 | **Password** | Administrator password | Minimum 12 characters recommended |
 | **Confirm Password** | Repeat password | Must match password field exactly |
 
-![Validate Admin](/assets/installation/cpanel/20-validate-admin.png)
+![Validate Admin](/assets/installation/cpanel/16-validate-admin.png)
 
 ### Validate Admin Account
 
@@ -376,7 +375,7 @@ Complete the installation by deploying UddoktaPay to your server.
 
 After successful admin validation, click **Deploy UddoktaPay** button
 
-![Deploy Button](/assets/installation/cpanel/21-deploy-button.png)
+![Deploy Button](/assets/installation/cpanel/17-deploy-button.png)
 
 ### Deployment Process
 
