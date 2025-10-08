@@ -8,19 +8,21 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         logo: '/assets/images/logo.png',
         siteTitle: false,
-        nav: [
-            { text: 'Home', link: 'https://uddoktapay.com' },
-            { text: 'Client Area', link: 'https://my.uddoktapay.com' }
-        ],
-
         aside: false,
-
         lastUpdated: {
             text: 'Updated at',
             formatOptions: {
                 dateStyle: 'full',
                 timeStyle: 'medium'
             }
+        },
+        nav: [
+            { text: 'Home', link: 'https://uddoktapay.com' },
+            { text: 'Client Area', link: 'https://my.uddoktapay.com' }
+        ],
+
+        search: {
+            provider: 'local'
         },
 
         sidebar: [
