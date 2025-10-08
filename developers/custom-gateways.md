@@ -19,7 +19,6 @@ title: Custom Gateways
 - [Helper Methods](#helper-methods)
 - [Testing Your Gateway](#testing-your-gateway)
 - [Troubleshooting](#troubleshooting)
-- [Best Practices](#best-practices)
 
 ## Introduction
 
@@ -35,7 +34,7 @@ Custom gateways let you integrate any payment provider into UddoktaPay. They ext
 
 Before creating a custom gateway, you should be familiar with:
 
-- **Laravel HTTP Client** - Used for API requests ([Documentation](https://laravel.com/docs/11.x/http-client))
+- **Laravel HTTP Client** - Used for API requests ([Documentation](https://laravel.com/docs/http-client))
 - Basic PHP OOP concepts
 - RESTful API integration
 - Webhook/IPN handling
@@ -380,7 +379,7 @@ Implement `Initializable` when you need to:
 Create a payment session and redirect the customer.
 
 ::: tip Laravel HTTP Client
-This section uses Laravel's HTTP client for API requests. Learn more: [Laravel HTTP Client Documentation](https://laravel.com/docs/11.x/http-client)
+This section uses Laravel's HTTP client for API requests. Learn more: [Laravel HTTP Client Documentation](https://laravel.com/docs/http-client)
 :::
 
 ```php
@@ -1007,53 +1006,3 @@ try {
 - Check payment status field mapping is correct
 - Ensure success callback returns `redirectToSuccessURL()`
 - Test with different payment statuses
-
-## Best Practices
-
-### Security
-- **Never store sensitive data in plain text** (API keys, tokens, card numbers, passwords)
-- **Always verify webhook signatures** using HMAC or gateway-provided methods
-- **Validate all incoming data** from callbacks and webhooks
-- **Use strong, unique webhook secrets** for signature verification
-
-### Error Handling
-- **Return clear error messages** that help users understand what went wrong
-- **Handle network timeouts** gracefully with appropriate timeouts (30s recommended)
-- **Don't expose sensitive errors** to users (show generic message instead)
-- **Always return `redirectToSuccessURL()`** in success callbacks for consistency
-- **Handle all payment statuses** (completed, pending, failed, cancelled)
-- **Implement retry logic** for transient network failures
-
-### Code Quality
-- **Use type hints** for all method parameters and return types
-- **Add helpful comments** explaining complex logic or gateway-specific quirks
-- **Follow PSR standards** for code style and formatting
-- **Write descriptive variable names** that clearly indicate purpose
-- **Keep methods focused** - each method should do one thing well
-- **Extract complex logic** into private helper methods
-- **Use early returns** to reduce nesting
-
-### Performance
-- **Set appropriate timeouts** (30 seconds recommended for API calls)
-- **Minimize API calls** during checkout to reduce latency
-- **Use HTTP client retries** for transient failures
-
-### User Experience
-- **Provide clear configuration instructions** with examples
-- **Use helpful tooltips and labels** in config form
-- **Show meaningful error messages** that guide users
-- **Test the complete checkout flow** from start to finish
-- **Handle all payment statuses properly** with appropriate messaging
-- **Provide copy buttons** for webhook URLs and IDs
-- **Add validation hints** for configuration fields
-
-### Testing
-- **Test in sandbox mode first** before going live
-- **Test all payment flows** (success, cancel, timeout, error)
-- **Test IPN/webhook handling** with gateway's test tools
-- **Test error scenarios** (invalid credentials, network failures, etc.)
-- **Test with different amounts** to ensure proper handling
-
-### Maintenance
-- **Keep up with gateway API updates** and deprecations
-- **Keep logo assets up to date** with gateway branding changes

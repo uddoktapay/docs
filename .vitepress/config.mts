@@ -96,7 +96,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                     { text: 'Custom Gateways', link: '/developers/custom-gateways' },
-                    { text: 'Notification Channels', link: '/developers/notification-channels' },
+                    { text: 'Custom Notifications', link: '/developers/custom-notifications' },
                     { text: 'Custom Themes', link: '/developers/custom-themes' },
                 ]
             }
