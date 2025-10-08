@@ -25,7 +25,7 @@ title: Installation Troubleshooting
 This guide provides solutions for common installation and configuration issues with UddoktaPay. Issues are organized by symptom with step-by-step resolution instructions.
 
 **Before troubleshooting:**
-- Verify all [system requirements](/installation/system-requirements) are met
+- Verify all [system requirements](/system-requirements.md) are met
 - Check that you followed installation steps in order
 - Review error logs for specific error messages
 - Try the issue in a different browser (some issues are browser-specific)
