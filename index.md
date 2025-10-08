@@ -133,7 +133,7 @@ Ready to simplify your payment operations? Here's your roadmap:
 
 - **Documentation** — You're reading it! Comprehensive guides for every feature
 - **Client Area** — [my.uddoktapay.com](https://my.uddoktapay.com) for license management and support
-- **Developer Docs** — [Custom Gateways](/developers/custom-gateways), [Themes](/developers/custom-themes), and [Notification Channels](/developers/notification-channels)
+- **Developer Docs** — [Custom Gateways](/developers/custom-gateways), [Themes](/developers/custom-themes), and [Notification Channels](/developers/custom-notifications.md)
 
 ---
 
