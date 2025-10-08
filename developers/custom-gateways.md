@@ -7,6 +7,7 @@ title: Custom Gateways
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Gateway Structure](#gateway-structure)
+- [Gateway Logo](#gateway-logo)
 - [Creating A Gateway Provider](#creating-a-gateway-provider)
 - [Gateway Metadata](#gateway-metadata)
 - [Configuration Form](#configuration-form)
@@ -61,6 +62,71 @@ namespace App\Modules\Gateways\YourGateway;
 - Directory name should be PascalCase (e.g., `BkashPayment`)
 - Class must be named `ProcessPayment`
 - Namespace must match directory path
+:::
+
+## Gateway Logo
+
+Every gateway should have a logo displayed in the checkout page. The logo path is determined by two factors:
+
+1. **Group** from metadata (lowercase)
+2. **Directory Name** where the gateway is located (lowercase)
+
+### Logo Placement
+
+```
+public/
+└── assets/
+    └── gateways/
+        └── {group-lowercase}/
+            └── {DirectoryName-lowercase}.png
+```
+
+### Logo Specifications
+
+- **Dimensions**: 500x250px
+- **Format**: PNG
+- **Aspect Ratio**: 2:1 (landscape)
+
+### Complete Example
+
+**Gateway Structure:**
+```
+app/Modules/Gateways/BkashPayment/ProcessPayment.php
+```
+
+**Metadata:**
+```php
+public static function metadata(): GatewayMetadata
+{
+    return GatewayMetadata::make()
+        ->name('bKash Payment')  // Display name (doesn't affect logo path)
+        ->group('bkash')         // Used in logo path
+        ->mfs();
+}
+```
+
+**Logo Location:**
+```
+public/assets/gateways/bkash/bkashpayment.png
+                       ^^^^^  ^^^^^^^^^^^^^
+                       group  Directory name (lowercase)
+```
+
+### More Examples
+
+| Directory Name | Group | Logo Path |
+|---------------|-------|-----------|
+| `BkashPayment` | `bkash` | `public/assets/gateways/bkash/bkashpayment.png` |
+| `NagadMFS` | `nagad` | `public/assets/gateways/nagad/nagadmfs.png` |
+| `StripePayment` | `stripe` | `public/assets/gateways/stripe/stripepayment.png` |
+| `PayPalExpress` | `paypal` | `public/assets/gateways/paypal/paypalexpress.png` |
+
+::: tip Logo Path Logic
+The system automatically converts both the group and directory name to lowercase when looking for the logo file. The display name (from `->name()`) does **not** affect the logo path—only the actual directory name matters.
+:::
+
+::: info Custom Logo Upload
+Admins can also upload custom logos through the dashboard, which will override the default logo file. However, it's best practice to always include a default logo in the correct location.
 :::
 
 ## Creating A Gateway Provider
@@ -132,7 +198,7 @@ public static function metadata(): GatewayMetadata
     return GatewayMetadata::make()
         ->name('Stripe')                 // Display name
         ->currency('USD', '$')           // Supported currency
-        ->group('stripe')                // Group identifier
+        ->group('stripe')                // Group identifier (used in logo path)
         ->global()                       // Gateway type
         ->live();                        // Operation mode
 }
@@ -911,6 +977,13 @@ try {
 - Verify class is named `ProcessPayment`
 - Clear application cache: `php artisan cache:clear`
 
+**Logo not displaying:**
+- Verify logo is placed at `public/assets/gateways/{group}/{directoryname}.png`
+- Ensure both group and directory name are lowercase in path
+- Check logo dimensions are 500x250px
+- Confirm logo format is PNG
+- Clear browser cache
+
 **Checkout fails:**
 - Check API credentials are correct
 - Verify `init()` is properly implemented
@@ -983,3 +1056,4 @@ try {
 
 ### Maintenance
 - **Keep up with gateway API updates** and deprecations
+- **Keep logo assets up to date** with gateway branding changes
