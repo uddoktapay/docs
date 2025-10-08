@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     title: "UddoktaPay",
     description: "Simplify Your Payment Management",
+    cleanUrls: true,
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         logo: '/assets/images/logo.png',
@@ -33,7 +34,7 @@ export default defineConfig({
                     { text: 'System Requirements', link: '/system-requirements' },
                     {
                         text: 'Installation Guide',
-                        collapsed: false,
+                        collapsed: true,
                         items: [
                             // { text: 'VPS (Ubuntu)', link: '/installation/vps' },
                             // { text: 'Docker', link: '/installation/docker' },
@@ -49,46 +50,46 @@ export default defineConfig({
             { text: 'Invoices', link: '/invoices' },
             { text: 'Payment Link', link: '/payment-links' },
             {
-                "text": "Brand Settings",
-                "collapsed": true,
-                "items": [
-                    { "text": "Overview", "link": "/brand-settings/overview" },
-                    { "text": "General", "link": "/brand-settings/general" },
-                    { "text": "Logo & Favicon", "link": "/brand-settings/logo" },
-                    { "text": "API Settings", "link": "/brand-settings/api" },
-                    { "text": "Mail Settings", "link": "/brand-settings/mail" },
-                    { "text": "Notifications Channels", "link": "/brand-settings/notifications" },
-                    { "text": "Themes", "link": "/brand-settings/themes" },
-                    { "text": "Text File", "link": "/brand-settings/text-file" },
-                    { "text": "FAQ", "link": "/brand-settings/faq" },
-                    { "text": "SEO", "link": "/brand-settings/seo" }
+                text: 'Brand Settings',
+                collapsed: true,
+                items: [
+                    { text: 'Overview', link: '/brand-settings/overview' },
+                    { text: 'General', link: '/brand-settings/general' },
+                    { text: 'Logo & Favicon', link: '/brand-settings/logo' },
+                    { text: 'API Settings', link: '/brand-settings/api' },
+                    { text: 'Mail Settings', link: '/brand-settings/mail' },
+                    { text: 'Notifications Channels', link: '/brand-settings/notifications' },
+                    { text: 'Themes', link: '/brand-settings/themes' },
+                    { text: 'Text File', link: '/brand-settings/text-file' },
+                    { text: 'FAQ', link: '/brand-settings/faq' },
+                    { text: 'SEO', link: '/brand-settings/seo' }
                 ]
             },
             {
-                "text": "MFS Automation",
-                "collapsed": true,
-                "items": [
-                    { "text": "SMS Data", "link": "/sms-data" },
-                    { "text": "Devices", "link": "/devices" },
+                text: 'MFS Automation',
+                collapsed: true,
+                items: [
+                    { text: 'SMS Data', link: '/sms-data' },
+                    { text: 'Devices', link: '/devices' },
                 ]
             },
             {
-                "text": "Administration",
-                "collapsed": true,
-                "items": [
-                    { "text": "Brands", "link": "/administration/brands" },
-                    { "text": "License", "link": "/administration/license" },
+                text: 'Administration',
+                collapsed: true,
+                items: [
+                    { text: 'Brands', link: '/administration/brands' },
+                    { text: 'License', link: '/administration/license' },
                     {
-                        "text": "System Settings",
-                        "collapsed": true,
-                        "items": [
-                            { "text": "Overview", "link": "/system-settings/overview" },
-                            { "text": "General", "link": "/system-settings/general" },
-                            { "text": "Cron Job", "link": "/system-settings/cron-job" },
-                            { "text": "Staff Management", "link": "/system-settings/staff-management" },
-                            { "text": "Access Roles", "link": "/system-settings/access-roles" },
-                            { "text": "Addons", "link": "/system-settings/addons" },
-                            { "text": "System Update", "link": "/system-settings/system-update" }
+                        text: 'System Settings',
+                        collapsed: true,
+                        items: [
+                            { text: 'Overview', link: '/system-settings/overview' },
+                            { text: 'General', link: '/system-settings/general' },
+                            { text: 'Cron Job', link: '/system-settings/cron-job' },
+                            { text: 'Staff Management', link: '/system-settings/staff-management' },
+                            { text: 'Access Roles', link: '/system-settings/access-roles' },
+                            { text: 'Addons', link: '/system-settings/addons' },
+                            { text: 'System Update', link: '/system-settings/system-update' }
                         ]
                     }
                 ]
@@ -108,6 +109,5 @@ export default defineConfig({
             { icon: 'github', link: 'https://github.com/uddoktapay' },
             { icon: 'facebook', link: 'https://facebook.com/uddoktapay' }
         ]
-    },
-    cleanUrls: true
+    }
 })
