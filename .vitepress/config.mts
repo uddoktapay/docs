@@ -108,5 +108,6 @@ export default defineConfig({
             { icon: 'github', link: 'https://github.com/uddoktapay' },
             { icon: 'facebook', link: 'https://facebook.com/uddoktapay' }
         ]
-    }
+    },
+    cleanUrls: true
 })
