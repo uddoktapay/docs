@@ -20,10 +20,9 @@ Ensure your server meets all technical prerequisites.
 
 Detailed installation guides are available for various hosting platforms:
 
-<!-- - [**VPS (Ubuntu)**](/installation/vps.md) (Recommended) - Automated one-command installation -->
-<!-- - [**Docker**](/installation/docker.md) - Containerized deployment -->
+- [**Docker**](/installation/docker.md) (Recommended) - Containerized deployment
 - [**cPanel**](/installation/cpanel.md) - Most common shared hosting
-<!-- - [**Hostinger**](/installation/hostinger.md) - Popular affordable hosting   -->
+- [**Hostinger**](/installation/hostinger.md) - Popular affordable hosting  
 
 ## **General installation steps:**
 

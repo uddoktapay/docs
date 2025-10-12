@@ -36,10 +36,9 @@ export default defineConfig({
                         text: 'Installation Guide',
                         collapsed: true,
                         items: [
-                            // { text: 'VPS (Ubuntu)', link: '/installation/vps' },
-                            // { text: 'Docker', link: '/installation/docker' },
+                            { text: 'Docker', link: '/installation/docker' },
                             { text: 'cPanel', link: '/installation/cpanel' },
-                            // { text: 'Hostinger', link: '/installation/hostinger' },
+                            { text: 'Hostinger', link: '/installation/hostinger' },
                         ]
                     },
                 ]
