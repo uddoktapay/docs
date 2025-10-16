@@ -2,27 +2,13 @@
 title: Installation
 ---
 
-# Before You Begin
+# Installation
 
-**Check System Requirements**  
-Ensure your server meets all technical prerequisites.
+Detailed installation guides are available for various platforms:
 
-[View System Requirements →](/system-requirements.md)
-
-**What you'll need:**
-- PHP 8.2+ with IonCube Loader
-- MySQL 8.0+ or MariaDB 10.3+
-- SSL certificate (required for production)
-- Cron job access
-- Email account for notifications
-
-## Installation
-
-Detailed installation guides are available for various hosting platforms:
-
-- [**Docker**](/installation/docker.md) (Recommended) - Containerized deployment
+- [**VPS / Docker**](/installation/docker.md) (Recommended) - Containerized deployment
 - [**cPanel**](/installation/cpanel.md) - Most common shared hosting
-- [**Hostinger**](/installation/hostinger.md) - Popular affordable hosting  
+- [**hPanel (Hostinger)**](/installation/hostinger.md) - Popular affordable hosting  
 
 ## **General installation steps:**
 

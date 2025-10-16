@@ -36,11 +36,12 @@ export default defineConfig({
                         text: 'Installation Guide',
                         collapsed: true,
                         items: [
-                            { text: 'Docker', link: '/installation/docker' },
+                            { text: 'VPS / Docker', link: '/installation/docker' },
                             { text: 'cPanel', link: '/installation/cpanel' },
-                            { text: 'Hostinger', link: '/installation/hostinger' },
+                            { text: 'hPanel (Hostinger)', link: '/installation/hpanel' },
                         ]
                     },
+                    { text: 'Post-Installation', link: '/installation/post-installation' },
                 ]
             },
             { text: 'Payments', link: '/payments' },

@@ -247,3 +247,20 @@ docker exec uddoktapay-app ping -c 3 your-database-host
 # Verify credentials
 docker exec uddoktapay-app env | grep DB_
 ```
+
+
+## Next Steps
+
+Your Docker installation is complete! Continue with the essential configuration steps:
+
+**[Post-Installation Configuration →](/installation/post-installation)**
+   - Validate license (required immediately)
+   - Configure cron job (required immediately)
+   - Set up brand settings
+   - Configure email delivery
+
+---
+
+**Installation Complete!**
+
+Your UddoktaPay payment gateway is now installed on Docker. Continue to [Post-Installation Configuration →](/installation/post-installation) to complete the setup.

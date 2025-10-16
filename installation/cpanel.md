@@ -165,8 +165,8 @@ After successful extraction, you can delete the installer ZIP file to save disk 
 3. Confirm deletion when prompted
 
 **After extraction, you should see:**
-- `installer` folder
-- `index.php` file
+- `public` folder
+- `.htaccess` file
 - Other installation files and directories
 
 
