@@ -8,7 +8,7 @@ Detailed installation guides are available for various platforms:
 
 - [**VPS / Docker**](/installation/docker.md) (Recommended) - Containerized deployment
 - [**cPanel**](/installation/cpanel.md) - Most common shared hosting
-- [**hPanel (Hostinger)**](/installation/hostinger.md) - Popular affordable hosting  
+- [**hPanel (Hostinger)**](/installation/hpanel.md) - Popular affordable hosting  
 
 ## **General installation steps:**
 
