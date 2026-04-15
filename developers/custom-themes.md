@@ -542,8 +542,7 @@ See [Dynamic Form Fields](#dynamic-form-fields) for details on styling and rende
 |----------|------|-------------|
 | `$pageTitle` | `string` | Page title |
 | `$gatewayLogo` | `string` | Gateway logo URL |
-| `$binanceId` | `string` | Recipient Binance Pay ID |
-| `$paymentTimeout` | `int` | Minutes allowed for verification |
+| `$config` | `array` | Gateway config array |
 | `$amount` | `string` | Raw amount |
 | `$amountFormatted` | `string` | Formatted amount |
 | `$currency` | `string` | Currency (e.g. `USDT`) |
@@ -570,8 +569,8 @@ See [Dynamic Form Fields](#dynamic-form-fields) for details on styling and rende
 ```blade
 <img src="{{ $gatewayLogo }}" alt="Binance Pay" />
 <p>Send <strong>{{ $amountFormatted }}</strong> to Binance ID:</p>
-<p>{{ $binanceId }}</p>
-<p>You have {{ $paymentTimeout }} minutes to complete this payment.</p>
+<p>{{ $config['binance_id'] }}</p>
+<p>You have {{ $config['payment_timeout'] }} minutes to complete this payment.</p>
 
 @if ($hasDiscount)
     <p>Discount: {{ $discountFormatted }}</p>
@@ -597,7 +596,7 @@ See [Dynamic Form Fields](#dynamic-form-fields) for details on styling and rende
 |----------|------|-------------|
 | `$pageTitle` | `string` | Page title |
 | `$gatewayName` | `string` | Gateway used |
-| `$gatewayPhone` | `string\|null` | Sender phone number |
+| `$sender` | `string\|null` | Sender phone number |
 | `$transactionId` | `string\|null` | Raw transaction ID |
 | `$transactionIdFormatted` | `string\|null` | Truncated transaction ID (20 chars) |
 | `$amount` | `string` | Raw amount |
@@ -633,8 +632,8 @@ See [Dynamic Form Fields](#dynamic-form-fields) for details on styling and rende
     <li>Gateway: {{ $gatewayName }}</li>
     <li>Amount: {{ $amountFormatted }}</li>
     <li>Status: {{ $statusFormatted }}</li>
-    @if ($gatewayPhone)
-        <li>Phone: {{ $gatewayPhone }}</li>
+    @if ($sender)
+        <li>Phone: {{ $sender }}</li>
     @endif
 </ul>
 ```
@@ -655,8 +654,8 @@ Receives the same variables as the success page.
     @if ($transactionIdFormatted)
         <li>Transaction: {{ $transactionIdFormatted }}</li>
     @endif
-    @if ($gatewayPhone)
-        <li>Phone: {{ $gatewayPhone }}</li>
+    @if ($sender)
+        <li>Phone: {{ $sender }}</li>
     @endif
 </ul>
 ```
