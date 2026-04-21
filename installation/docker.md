@@ -13,6 +13,10 @@ Run this command on your Linux server:
 curl -fsSL https://get.uddoktapay.com/install.sh | bash
 ```
 
+The installer will interactively prompt you for:
+- **Domain / URL** — your application URL (default: `http://localhost`)
+- **Port** — the port to expose (default: `80`)
+- **Database** — local (Docker-managed) or remote (external MySQL/MariaDB)
 
 ::: details System Requirements
 
@@ -21,46 +25,28 @@ curl -fsSL https://get.uddoktapay.com/install.sh | bash
 | **OS** | Linux (Ubuntu, Debian, CentOS, Fedora, etc.) |
 | **RAM** | 1GB minimum |
 | **Disk** | 10GB available |
-| **Port** | 80 available |
+| **Port** | 80 available (configurable) |
 | **Access** | Root or sudo |
 :::
 
 ::: details What gets installed?
 - Docker (if not already installed)
-- UddoktaPay application
-- MariaDB database
+- UddoktaPay application container
+- MariaDB database container (if local DB chosen)
 - All required dependencies
 :::
 
 ::: tip Access Your Fresh Installation
-Before proceeding, **immediately change the default credentials** for security reasons. Use a strong, unique password and consider enabling two-factor authentication.
+**Immediately change the default credentials** after your first login.
 
-- **Admin URL**: `https://YOUR_DOMAIN/admin`  
-  *(Replace `YOUR_DOMAIN` with your actual domain.)*
+- **Admin URL**: `https://YOUR_DOMAIN/admin`
+- **Default Email**: `admin@admin.com`
+- **Default Password**: `12345678`
 
-- **Default Email**: `admin@admin.com`  
-  *(Update this in your user settings after login.)*
-
-- **Default Password**: `12345678`  
-  *(Change this on first login—do not use in production!)*
-:::
-
-
-## Upgrade
-
-Keep your installation up-to-date:
-
-```bash
-curl -fsSL https://get.uddoktapay.com/upgrade.sh | bash
-```
-
-::: tip Safe Upgrades
-Your data is preserved during upgrades. The upgrade script handles everything automatically.
+> ⚠️ Do not use the default credentials in production!
 :::
 
 ## Uninstall
-
-Remove UddoktaPay from your server:
 
 ```bash
 curl -fsSL https://get.uddoktapay.com/uninstall.sh | bash
@@ -74,155 +60,208 @@ The uninstall script will prompt before deleting your data. Make sure you have b
 
 ```bash
 # View logs
-docker logs -f uddoktapay-app
+docker compose -f /opt/uddoktapay/compose.yml logs -f
 
-# Restart application
-docker restart uddoktapay-app
+# Restart all services
+docker compose -f /opt/uddoktapay/compose.yml restart
 
-# Stop application
-docker stop uddoktapay-app
+# Stop all services
+docker compose -f /opt/uddoktapay/compose.yml down
 
-# Start application
-docker start uddoktapay-app
+# Start all services
+docker compose -f /opt/uddoktapay/compose.yml up -d
 
-# Access shell
+# Access app shell
 docker exec -it uddoktapay-app bash
 ```
 
 ## Manual Configuration
 
-Need to customize your installation? Use manual Docker installation for full control.
+Need full control? Use Docker Compose directly instead of the automated installer.
 
-### When to Use Manual Install
-
-- Change default port (80)
-- Use external database
-- Custom Docker network setup
-- Non-Linux platforms (macOS, Windows WSL2)
-
-### Basic Docker Install
+### 1. Create the install directory
 
 ```bash
-docker run -d \
-  --name uddoktapay-app \
-  --restart unless-stopped \
-  -p 80:80 \
-  -e APP_URL="http://localhost" \
-  -e INSTALL_EMAIL="admin@admin.com" \
-  -e INSTALL_PASSWORD="12345678" \
-  -v uddoktapay-app-data:/var/www/html \
-  -v uddoktapay-db-data:/var/lib/mysql \
-  uddoktapay/uddoktapay:latest
+mkdir -p /opt/uddoktapay && cd /opt/uddoktapay
 ```
 
-### Custom Port
-
-Change the default port 80 to any port you need:
+### 2. Download the compose file
 
 ```bash
-docker run -d \
-  --name uddoktapay-app \
-  --restart unless-stopped \
-  -p 8080:80 \
-  -e APP_URL="http://localhost:8080" \
-  -e INSTALL_EMAIL="admin@admin.com" \
-  -e INSTALL_PASSWORD="12345678" \
-  -v uddoktapay-app-data:/var/www/html \
-  -v uddoktapay-db-data:/var/lib/mysql \
-  uddoktapay/uddoktapay:latest
+curl -fsSL https://get.uddoktapay.com/compose.yml -o compose.yml
 ```
 
-Access at: `http://YOUR_SERVER_IP:8080/admin`
+### 3. Generate your `APP_KEY`
 
-### External Database
+Click the button below to generate a secure application key:
 
-Connect to an existing MySQL/MariaDB server:
+<div style="margin: 1rem 0; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px;">
+  <button @click="generateKey" style="padding: 0.5rem 1rem; background: var(--vp-c-brand-1); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Generate Key</button>
+  <div v-if="appKey" style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+    <code style="flex: 1; padding: 0.5rem; background: var(--vp-c-bg-soft); border-radius: 4px; word-break: break-all;">{{ appKey }}</code>
+    <button @click="copyKey" style="padding: 0.5rem 0.75rem; background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider); border-radius: 6px; cursor: pointer;">{{ copied ? '✓' : 'Copy' }}</button>
+  </div>
+</div>
+
+<script setup>
+import { ref } from 'vue'
+
+const appKey = ref('')
+const copied = ref(false)
+
+function generateKey() {
+  const array = new Uint8Array(32)
+  crypto.getRandomValues(array)
+  const base64 = btoa(String.fromCharCode(...array))
+  appKey.value = `base64:${base64}`
+  copied.value = false
+}
+
+function copyKey() {
+  navigator.clipboard.writeText(appKey.value)
+  copied.value = true
+  setTimeout(() => copied.value = false, 2000)
+}
+</script>
+
+Or generate via terminal:
+```bash
+echo "base64:$(openssl rand -base64 32)"
+```
+
+### 4. Create your `.env` file
+
+#### Local Database (recommended)
+
+```env
+PORT=80
+APP_NAME=UddoktaPay
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://pay.yourdomain.com
+APP_KEY=your-generated-key-here
+
+# Database
+DB_CONNECTION=mariadb
+DB_HOST=mariadb
+DB_PORT=3306
+DB_DATABASE=uddoktapay
+DB_USERNAME=uddoktapay
+DB_PASSWORD=your-secure-password
+
+# MariaDB container
+MARIADB_DATABASE=uddoktapay
+MARIADB_USER=uddoktapay
+MARIADB_PASSWORD=your-secure-password
+MARIADB_RANDOM_ROOT_PASSWORD=1
+
+# Enable local database
+COMPOSE_PROFILES=local-db
+```
+
+> **Important:** `DB_PASSWORD` and `MARIADB_PASSWORD` must be the same value.
+
+#### Remote Database
+
+```env
+PORT=80
+APP_NAME=UddoktaPay
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://pay.yourdomain.com
+APP_KEY=
+
+# Remote database
+DB_CONNECTION=mariadb
+DB_HOST=your-database-host.com
+DB_PORT=3306
+DB_DATABASE=uddoktapay
+DB_USERNAME=uddoktapay_user
+DB_PASSWORD=your-db-password
+```
+
+> Without `COMPOSE_PROFILES=local-db`, only the app container starts — no MariaDB container.
+
+### 5. Start the services
 
 ```bash
-docker run -d \
-  --name uddoktapay-app \
-  --restart unless-stopped \
-  -p 80:80 \
-  -e APP_URL="https://pay.yourdomain.com" \
-  -e INSTALL_EMAIL="admin@example.com" \
-  -e INSTALL_PASSWORD="SecurePassword123" \
-  -e DB_CONNECTION="mysql" \
-  -e DB_HOST="your-database-host.com" \
-  -e DB_PORT="3306" \
-  -e DB_DATABASE="uddoktapay" \
-  -e DB_USERNAME="uddoktapay_user" \
-  -e DB_PASSWORD="your-db-password" \
-  -v uddoktapay-app-data:/var/www/html \
-  uddoktapay/uddoktapay:latest
+docker compose up -d
 ```
 
-::: tip Database Requirements
-Ensure your database server allows connections from the Docker container's IP address.
-:::
+### 6. Verify
+
+```bash
+# Check services are running
+docker compose ps
+
+# Follow logs until "started successfully"
+docker compose logs -f
+```
 
 ## Environment Variables
 
-::: warning Application Settings
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `APP_URL` | Yes | `http://localhost` | Full application URL |
-| `INSTALL_EMAIL` | Yes | `admin@admin.com` | Admin email |
-| `INSTALL_PASSWORD` | Yes | `12345678` | Admin password |
-| `APP_NAME` | No | `UddoktaPay` | Application name |
-
-:::
-
-::: tip Database Settings
+### Application
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DB_CONNECTION` | `mariadb` | Database type: `mysql`, `mariadb`, `pgsql` |
-| `DB_HOST` | `127.0.0.1` | Database hostname |
+| `PORT` | `80` | Host port to expose |
+| `APP_URL` | `http://localhost` | Full application URL |
+| `APP_NAME` | `UddoktaPay` | Application name |
+| `APP_ENV` | `production` | Environment mode |
+| `APP_DEBUG` | `false` | Debug mode |
+| `APP_KEY` | — | Encryption key (generate above) |
+
+### Database
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DB_CONNECTION` | `mariadb` | Database driver |
+| `DB_HOST` | `mariadb` | Hostname (`mariadb` for local, your host for remote) |
 | `DB_PORT` | `3306` | Database port |
 | `DB_DATABASE` | `uddoktapay` | Database name |
-| `DB_USERNAME` | `uddoktapay_user` | Database username |
-| `DB_PASSWORD` | *auto-generated* | Database password |
+| `DB_USERNAME` | `uddoktapay` | Database username |
+| `DB_PASSWORD` | — | Database password |
 
-:::
+### Compose
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `COMPOSE_PROFILES` | — | Set to `local-db` to start the MariaDB container |
 
 ## Troubleshooting
 
 ### Port Already in Use
 
-If port 80 is already occupied:
-
 ```bash
-# Check what's using port 80
+# Check what's using your port
 sudo lsof -i :80
 
-# Option 1: Stop the conflicting service
+# Stop the conflicting service
 sudo systemctl stop apache2  # or nginx
 
-# Option 2: Use a different port
-docker run -p 8080:80 ...
+# Or change PORT in your .env file and restart
+docker compose -f /opt/uddoktapay/compose.yml up -d
 ```
 
 ### Container Won't Start
 
 ```bash
 # Check logs for errors
-docker logs uddoktapay-app
+docker compose -f /opt/uddoktapay/compose.yml logs
 
 # Fix common permission issues
 docker exec uddoktapay-app chmod -R 775 /var/www/html/storage
-docker restart uddoktapay-app
+docker compose -f /opt/uddoktapay/compose.yml restart
 ```
 
 ### Application Not Accessible
 
 ```bash
-# Verify container is running
-docker ps | grep uddoktapay
+# Verify containers are running
+docker compose -f /opt/uddoktapay/compose.yml ps
 
 # Check firewall
 sudo ufw allow 80/tcp
-sudo ufw status
 
 # Test local access
 curl http://localhost
@@ -230,37 +269,32 @@ curl http://localhost
 
 ### Database Connection Failed
 
-**For embedded database:**
+**Local database:**
 ```bash
-# Restart container
-docker restart uddoktapay-app
+# Check MariaDB container health
+docker inspect uddoktapay-db --format='{{.State.Health.Status}}'
 
-# Check volumes exist
+# Restart services
+docker compose -f /opt/uddoktapay/compose.yml restart
+
+# Verify volumes exist
 docker volume ls | grep uddoktapay
 ```
 
-**For external database:**
+**Remote database:**
 ```bash
-# Test connection from container
-docker exec uddoktapay-app ping -c 3 your-database-host
-
 # Verify credentials
 docker exec uddoktapay-app env | grep DB_
-```
 
+# Ensure your remote DB allows connections from the Docker host IP
+```
 
 ## Next Steps
 
 Your Docker installation is complete! Continue with the essential configuration steps:
 
 **[Post-Installation Configuration →](/installation/post-installation)**
-   - Validate license (required immediately)
-   - Configure cron job (required immediately)
-   - Set up brand settings
-   - Configure email delivery
-
----
-
-**Installation Complete!**
-
-Your UddoktaPay payment gateway is now installed on Docker. Continue to [Post-Installation Configuration →](/installation/post-installation) to complete the setup.
+- Validate license (required immediately)
+- Configure cron job (required immediately)
+- Set up brand settings
+- Configure email delivery
