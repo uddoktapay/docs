@@ -97,7 +97,7 @@ namespace Themes\MyTheme;
 
 use Revoltify\Support\Forms\Components\Field;
 use Revoltify\Support\Forms\Form;
-use Revoltify\Themeable\AbstractTheme;
+use Revoltify\Themeify\AbstractTheme;
 
 final class Config extends AbstractTheme
 {
